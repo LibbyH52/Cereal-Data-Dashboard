@@ -7,21 +7,165 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breakfast Cereal Data Dashboard</title>
 
+    <!--CSS-->
+    <!--Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css" />
+    <!--CSS file for loading the graphs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.9/dc.min.css" type="text/css" />
+    <!--Custom CSS-->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <!--JavaScript-->
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!--JS libraries for charts-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.9/dc.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-    <script type="text/javascript" src="assets/js/cereal.js"></script>
+    <!--Custom JS file for charts-->
+    <script type="text/javascript" src="assets/js/chart.js"></script>
+
 </head>
 
 <body>
-   <div class="container">
-       <h1>Breakfast Cereal Data Dashboard</h1>
-   </div>
+    <div class="container">
+        <div class="row">
+            <h1>Breakfast Cereal Data Dashboard</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="col-md-8 pieChart">
+                <div id="products_per_manufacturer">
+                    <h2>number of products per manufacturer</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-7">
+                <div id="breakfast">
+                    <h3>Average number of calories per manufacturer</h3>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-5">
+                <div class="accordion" id="nutritionAccordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h3 class="nutrition">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  Protein Content Per Manufacturer
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#nutritionAccordion">
+                            <div class="card-body">
+                                <div id="protein_content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h3 class="nutrition">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Fiber Content Per Manufacturer
+        </button>
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#nutritionAccordion">
+                            <div class="card-body">
+                                <div id="fiber_content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h3 class="nutrition">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  Carbohydrate Content Per Manufacturer
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#nutritionAccordion">
+                            <div class="card-body">
+                                <div id="carb_content">
+                                    <h2>Carbohydrates</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h3 class="nutrition">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                  Sugar Content Per Manufacturer
+                                </button>
+                            </h3>
+                        </div>
+
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#nutritionAccordion">
+                            <div class="card-body">
+                                <div id="sugar_content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h3 class="nutrition">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                  Sodium Content Per Manufacturer
+                                </button>
+                            </h3>
+                        </div>
+
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#nutritionAccordion">
+                            <div class="card-body">
+                                <div id="sodium_content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingSeven">
+                            <h3 class="nutrition">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Fat Content Per Manufacturer
+        </button>
+                            </h3>
+                        </div>
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#nutritionAccordion">
+                            <div class="card-body">
+                                <div id="fat_content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 offset-md-2 col-md-8">
+                        <div id="serving_size_calorie correlation">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 
 </html>
