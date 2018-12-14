@@ -44,8 +44,9 @@ function makeGraphs(error, cerealData) {
     protein_per_product(ndx);
     sugar_per_product(ndx);
     fat_per_product(ndx);
-    sodium_per_product(ndx)
-   // serving_size_calorie_correlation(ndx)
+    sodium_per_product(ndx);
+    serving_size_calorie_correlation(ndx);
+ 
     dc.renderAll();
 }
 
@@ -97,8 +98,6 @@ function displayCereals(ndx) {
         .yAxis().ticks(6);
 }
 function show_manufacturer(ndx){
-        //focuses on one graph
-        //use the ndx variable to create our dimension
         var dim = ndx.dimension(dc.pluck("mfr"));
         var group = dim.group();
         
@@ -348,3 +347,30 @@ function fat_per_product(ndx){
         .xAxis().ticks(4);
 }
 //weight of serving size (oz) to calorie correlation
+function serving_size_calorie_correlation(ndx){
+    var serving_dim = ndx.dimension(dc.pluck("cups"));
+    
+    var min_serving = serving_dim.bottom(1)[0].cups;
+    var max_serving = serving_dim.top(1)[0].cups;
+    
+    var calorie_dim = ndx.dimension(function(d){
+        return [d.cups, d.calories];
+    })
+    
+    var calorie_group = calorie_dim.group().reduceSum(dc.pluck("calories"));
+    console.log(calorie_group.all());
+    
+    dc.scatterPlot("#serving_size_calorie_correlation")
+            .width(800)
+            .height(400)
+            .x(d3.scale.linear().domain([min_serving, max_serving]))
+            .brushOn(false)
+            .symbolSize(8)
+            .clipPadding(10)
+            .yAxisLabel("calories")
+            .title(function(d){
+               return "There is " +d.key[1];
+            })
+            .dimension(calorie_dim)
+            .group(calorie_group)
+}
