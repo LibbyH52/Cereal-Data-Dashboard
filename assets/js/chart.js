@@ -5,7 +5,8 @@ queue()
     
 var mfrColors = d3.scale.ordinal()
                 .domain(["A", "G", "K", "N", "P", "Q", "R"])
-                .range(["#f3babc", "#bad0af", "#ec838a", "#488f31", "#de425b","#f1f1f1", "#83af70"]);
+                //.range(["#f3babc", "#488f31","#f1f1f1", "#83af70", "#ec838a", "#de425b", "#bad0af"]);
+                .range(["#003f5c", "#374c80", "#7a5195", "#bc5090", "#ef5675", "#ff764a", "#ffa600"])
   
 function makeGraphs(error, cerealData) {
     var ndx = crossfilter(cerealData);
@@ -35,17 +36,18 @@ function makeGraphs(error, cerealData) {
          }else  if(d.mfr == "N"){
              d.mfr = "Nabisco"
          }
+         
      })
-    
+     
     displayCereals(ndx);
-    show_manufacturer(ndx);
-    show_nutrition_per_product(ndx);
-    carbs_per_product(ndx);
-    protein_per_product(ndx);
-    sugar_per_product(ndx);
-    fat_per_product(ndx);
-    sodium_per_product(ndx);
-    serving_size_calorie_correlation(ndx);
+    showManufacturer(ndx);
+    showFiberPerProduct(ndx);
+    carbsPerProduct(ndx);
+    proteinPerProduct(ndx);
+    sugarPerProduct(ndx);
+    fatPerProduct(ndx);
+    sodiumPerProduct(ndx);
+    servingSizeCalorieCorrelation(ndx);
  
     dc.renderAll();
 }
@@ -85,35 +87,37 @@ function displayCereals(ndx) {
     );
     dc.barChart("#breakfast")
         .width(500)
-        .height(700)
-        .margins({top: 30, right: 20, bottom: 10, left: 10})
+        .height(600)
+        .margins({top: 30, right: 20, bottom: 40, left: 30})
+        .transitionDuration(1000)
         .dimension(manfacturer_dim)
         .group(average_calorie_per_product)
         .valueAccessor(function(d) {
             return d.value.average;
         })
+        .barPadding(.1)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Manufacturer")
         .yAxis().ticks(6);
 }
-function show_manufacturer(ndx){
+function showManufacturer(ndx){
         var dim = ndx.dimension(dc.pluck("mfr"));
         var group = dim.group();
         
-         dc.pieChart("#products_per_manufacturer")
-                .height(350)
-                .radius(175)
-                .innerRadius(100)
+         dc.pieChart("#productsPerManufacturer")
+                .height(450)
+                .radius(225)
+                .innerRadius(125)
                 .transitionDuration(1500)
                 .colors(mfrColors)
                 .dimension(dim)
                 .group(group)
                 .legend(dc.legend().x(10).y(20).itemHeight(40).gap(10))
 }
-function show_nutrition_per_product(ndx){
-      var fiber_dim = ndx.dimension(dc.pluck("mfr"));
-        var fiber_group =fiber_dim.group().reduce(function(p, v) {
+function showFiberPerProduct(ndx){
+      var fiberDim = ndx.dimension(dc.pluck("mfr"));
+        var fiberGroup =fiberDim.group().reduce(function(p, v) {
             p.count++;
             p.total += v.fiber;
             p.average = p.total / p.count;
@@ -137,23 +141,23 @@ function show_nutrition_per_product(ndx){
             return { count: 0, total: 0, average: 0 }
     });
     
-    console.log(fiber_dim.groupAll());
+    console.log(fiberDim.groupAll());
     
-    dc.rowChart("#fiber_content")
-         .width(550)
+    dc.rowChart("#fiberContent")
+         .width(500)
         .height(300)
-        .dimension(fiber_dim)
+        .dimension(fiberDim)
         .colors(mfrColors)
-        .group(fiber_group)
+        .group(fiberGroup)
          .valueAccessor(function(d) {
                     return d.value.average;
         })
         .xAxis().ticks(5);
 }
 
-function protein_per_product(ndx){
-      var protein_dim = ndx.dimension(dc.pluck("mfr"));
-        var protein_group =protein_dim.group().reduce(function(p, v) {
+function proteinPerProduct(ndx){
+      var proteinDim = ndx.dimension(dc.pluck("mfr"));
+        var proteinGroup =proteinDim.group().reduce(function(p, v) {
             p.count++;
             p.total += v.protein;
             p.average = p.total / p.count;
@@ -177,22 +181,22 @@ function protein_per_product(ndx){
             return { count: 0, total: 0, average: 0 }
     });
     
-    console.log(protein_dim.groupAll());
+    console.log(proteinDim.groupAll());
     
-    dc.rowChart("#protein_content")
-         .width(550)
+    dc.rowChart("#proteinContent")
+         .width(500)
         .height(300)
-        .dimension(protein_dim)
-        .group(protein_group)
+        .dimension(proteinDim)
+        .group(proteinGroup)
          .valueAccessor(function(d) {
                     return d.value.average;
         })
         .colors(mfrColors)
         .xAxis().ticks(4);
 }
-function carbs_per_product(ndx){
-      var carbs_dim = ndx.dimension(dc.pluck("mfr"));
-        var carbs_group =carbs_dim.group().reduce(function(p, v) {
+function carbsPerProduct(ndx){
+      var carbsDim = ndx.dimension(dc.pluck("mfr"));
+        var carbsGroup =carbsDim.group().reduce(function(p, v) {
             p.count++;
             p.total += v.carbo;
             p.average = p.total / p.count;
@@ -216,22 +220,22 @@ function carbs_per_product(ndx){
             return { count: 0, total: 0, average: 0 }
     });
     
-    console.log(carbs_dim.groupAll());
+    console.log(carbsDim.groupAll());
     
-    dc.rowChart("#carb_content")
-         .width(550)
+    dc.rowChart("#carbContent")
+         .width(500)
         .height(300)
-        .dimension(carbs_dim)
-        .group(carbs_group)
+        .dimension(carbsDim)
+        .group(carbsGroup)
         .colors(mfrColors)
          .valueAccessor(function(d) {
                     return d.value.average;
         })
         .xAxis().ticks(4);
 }
-function sugar_per_product(ndx){
-      var sugar_dim = ndx.dimension(dc.pluck("mfr"));
-        var sugar_group = sugar_dim.group().reduce(function(p, v) {
+function sugarPerProduct(ndx){
+      var sugarDim = ndx.dimension(dc.pluck("mfr"));
+        var sugarGroup = sugarDim.group().reduce(function(p, v) {
             p.count++;
             p.total += v.sugars;
             p.average = p.total / p.count;
@@ -255,22 +259,22 @@ function sugar_per_product(ndx){
             return { count: 0, total: 0, average: 0 }
     });
     
-    console.log(sugar_dim.groupAll());
+    console.log(sugarDim.groupAll());
     
-    dc.rowChart("#sugar_content")
-        .width(550)
+    dc.rowChart("#sugarContent")
+        .width(500)
         .height(300)
-        .dimension(sugar_dim)
-        .group(sugar_group)
+        .dimension(sugarDim)
+        .group(sugarGroup)
         .colors(mfrColors)
          .valueAccessor(function(d) {
                     return d.value.average;
         })
         .xAxis().ticks(4);
 }
-function sodium_per_product(ndx){
-      var sodium_dim = ndx.dimension(dc.pluck("mfr"));
-        var sodium_group = sodium_dim.group().reduce(function(p, v) {
+function sodiumPerProduct(ndx){
+      var sodiumDim = ndx.dimension(dc.pluck("mfr"));
+        var sodiumGroup = sodiumDim.group().reduce(function(p, v) {
             p.count++;
             p.total += v.sodium;
             p.average = p.total / p.count;
@@ -294,22 +298,22 @@ function sodium_per_product(ndx){
             return { count: 0, total: 0, average: 0 }
     });
     
-    console.log(sodium_dim.groupAll());
+    console.log(sodiumDim.groupAll());
     
-    dc.rowChart("#sodium_content")
-         .width(550)
+    dc.rowChart("#sodiumContent")
+         .width(500)
         .height(300)
-        .dimension(sodium_dim)
-        .group(sodium_group)
+        .dimension(sodiumDim)
+        .group(sodiumGroup)
         .colors(mfrColors)
          .valueAccessor(function(d) {
                     return d.value.average;
         })
         .xAxis().ticks(4);
 }
-function fat_per_product(ndx){
-      var fat_dim = ndx.dimension(dc.pluck("mfr"));
-        var fat_group = fat_dim.group().reduce(function(p, v) {
+function fatPerProduct(ndx){
+      var fatDim = ndx.dimension(dc.pluck("mfr"));
+        var fatGroup = fatDim.group().reduce(function(p, v) {
             p.count++;
             p.total += v.fat;
             p.average = p.total / p.count;
@@ -333,13 +337,13 @@ function fat_per_product(ndx){
             return { count: 0, total: 0, average: 0 }
     });
     
-    console.log(fat_dim.groupAll());
+    console.log(fatDim.groupAll());
     
-    dc.rowChart("#fat_content")
-        .width(550)
+    dc.rowChart("#fatContent")
+        .width(500)
         .height(300)
-        .dimension(fat_dim)
-        .group(fat_group)
+        .dimension(fatDim)
+        .group(fatGroup)
         .colors(mfrColors)
          .valueAccessor(function(d) {
                     return d.value.average;
@@ -347,30 +351,37 @@ function fat_per_product(ndx){
         .xAxis().ticks(4);
 }
 //weight of serving size (oz) to calorie correlation
-function serving_size_calorie_correlation(ndx){
-    var serving_dim = ndx.dimension(dc.pluck("cups"));
+function servingSizeCalorieCorrelation(ndx){
+    var servingDim = ndx.dimension(dc.pluck("cups"));
     
-    var min_serving = serving_dim.bottom(1)[0].cups;
-    var max_serving = serving_dim.top(1)[0].cups;
+    var minServing = servingDim.bottom(1)[0].cups;
+    var maxServing = servingDim.top(1)[0].cups;
     
-    var calorie_dim = ndx.dimension(function(d){
-        return [d.cups, d.calories];
+    var calorieDim = ndx.dimension(function(d){
+        return [d.cups, d.calories, d.name];
     })
+    var minCalories = calorieDim.bottom(1)[0].calories;
+    var maxCalories = calorieDim.top(1)[0].calories;
     
-    var calorie_group = calorie_dim.group().reduceSum(dc.pluck("calories"));
-    console.log(calorie_group.all());
+    var calorieGroup = calorieDim.group().reduceSum(dc.pluck("calories"));
+    console.log(calorieGroup.all());
     
-    dc.scatterPlot("#serving_size_calorie_correlation")
-            .width(800)
-            .height(400)
-            .x(d3.scale.linear().domain([min_serving, max_serving]))
+    dc.scatterPlot("#servingSizeCalorieCorrelation")
+            .width(600)
+            .height(500)
+            .margins({top: 40, right: 20, bottom: 40, left: 30})
+            .transitionDuration(2500)
+            .x(d3.scale.linear().domain([0, maxServing]))
+            .xAxisLabel("Serving Size in Cups")
             .brushOn(false)
             .symbolSize(8)
-            .clipPadding(10)
-            .yAxisLabel("calories")
+            .clipPadding(20)
+            .yAxisLabel("Calories")
             .title(function(d){
-               return "There is " +d.key[1];
+               return "There are " +d.key[1] + " calories in " +d.key[0]+ " cup(s) of "+ d.key[2];
             })
-            .dimension(calorie_dim)
-            .group(calorie_group)
+            .dimension(calorieDim)
+            .group(calorieGroup)
+            .xAxis().ticks(8);
 }
+
