@@ -32,13 +32,15 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <h1>Breakfast Cereal Data Dashboard</h1>
+        <div class="row headingRow">
+            <div class="col-xs-12 col-md-12">
+                <h1>Breakfast Cereal Data Dashboard</h1>
+            </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-6 calorieCol">
+                <h2>Average calories per manufacturer</h2>
                 <div id="breakfast">
-                    <h3>Average number of calories per manufacturer</h3>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
@@ -46,8 +48,8 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h3 class="nutrition">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Protein Content Per Manufacturer
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                  Protein
                                 </button>
                             </h3>
                         </div>
@@ -63,8 +65,8 @@
                         <div class="card-header" id="headingTwo">
                             <h3 class="nutrition">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Fiber Content Per Manufacturer
-        </button>
+                                  Fiber
+                                </button>
                             </h3>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#nutritionAccordion">
@@ -79,41 +81,23 @@
                         <div class="card-header" id="headingThree">
                             <h3 class="nutrition">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                  Carbohydrate Content Per Manufacturer
+                                  Carbohydrates
                                 </button>
                             </h3>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#nutritionAccordion">
                             <div class="card-body">
                                 <div id="carbContent">
-                                    <h2>Carbohydrates</h2>
                                 </div>
 
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h3 class="nutrition">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                  Sugar Content Per Manufacturer
-                                </button>
-                            </h3>
-                        </div>
-
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#nutritionAccordion">
-                            <div class="card-body">
-                                <div id="sugarContent">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="card">
                         <div class="card-header" id="headingFive">
                             <h3 class="nutrition">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                  Sodium Content Per Manufacturer
+                                  Sodium
                                 </button>
                             </h3>
                         </div>
@@ -130,8 +114,8 @@
                         <div class="card-header" id="headingSeven">
                             <h3 class="nutrition">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-          Fat Content Per Manufacturer
-        </button>
+                                      Fat
+                                </button>
                             </h3>
                         </div>
                         <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#nutritionAccordion">
@@ -144,31 +128,35 @@
                     </div>
 
                 </div>
-                </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 chartHeading">
+                <h2>number of products per manufacturer</h2>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12 col-md-12 pieChart">
                 <div id="productsPerManufacturer">
-                    <h2>number of products per manufacturer</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-                    <div class="col-xs-12 offset-md-2 col-md-8">
-                        <div id="servingSizeCalorieCorrelation">
+            <div class="col-xs-12 offset-md-2 col-md-8">
+                <div id="servingSizeCalorieCorrelation">
 
-                        </div>
-                        <p>There appears to be very little correlation between serving size and calories </p>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
-                        <div id="myCereal">
-                            
-                        </div>
-                    </div>
+                <p>There appears to be very little correlation between serving size and calories </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div id="myCereal">
+
                 </div>
-            
+            </div>
+        </div>
+
 </body>
 
 </html>
