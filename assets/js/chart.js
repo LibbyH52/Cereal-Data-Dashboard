@@ -14,10 +14,10 @@ function makeGraphs(error, cerealData) {
         d.calories = parseInt(d.calories);
         d.protein = parseInt(d.protein);
         d.carbo = parseInt(d.carbo);
-        d.sugars = parseInt(d.sugars);
         d.fiber = parseInt(d.fiber);
         d.weight = parseInt(d.weight);
         d.fat = parseInt(d.fat);
+        d.sugars = parseInt(d.sugars);
         d.sodium = parseInt(d.sodium);
     })
      cerealData.forEach(function(d) {
@@ -44,11 +44,11 @@ function makeGraphs(error, cerealData) {
     showFiberPerProduct(ndx);
     carbsPerProduct(ndx);
     proteinPerProduct(ndx);
-    sugarPerProduct(ndx);
     fatPerProduct(ndx);
     sodiumPerProduct(ndx);
+    sugarPerProduct(ndx);
     servingSizeCalorieCorrelation(ndx);
- 
+    selectMyCereal(ndx);
     dc.renderAll();
 }
 
@@ -88,7 +88,7 @@ function displayCereals(ndx) {
     dc.barChart("#breakfast")
         .width(500)
         .height(600)
-        .margins({top: 30, right: 20, bottom: 40, left: 30})
+        .margins({top: 40, right: 30, bottom: 40, left: 30})
         .transitionDuration(1000)
         .dimension(manfacturer_dim)
         .group(average_calorie_per_product)
@@ -106,14 +106,14 @@ function showManufacturer(ndx){
         var group = dim.group();
         
          dc.pieChart("#productsPerManufacturer")
-                .height(450)
-                .radius(225)
-                .innerRadius(125)
+                .height(350)
+                .radius(150)
+                .innerRadius(75)
                 .transitionDuration(1500)
                 .colors(mfrColors)
                 .dimension(dim)
                 .group(group)
-                .legend(dc.legend().x(10).y(20).itemHeight(40).gap(10))
+                .legend(dc.legend().x(0).y(30).itemHeight(35).gap(10))
 }
 function showFiberPerProduct(ndx){
       var fiberDim = ndx.dimension(dc.pluck("mfr"));
@@ -144,12 +144,13 @@ function showFiberPerProduct(ndx){
     console.log(fiberDim.groupAll());
     
     dc.rowChart("#fiberContent")
-         .width(500)
+        .width(500)
         .height(300)
+        .margins({top: 10, right: 30, bottom: 40, left: 30})
         .dimension(fiberDim)
         .colors(mfrColors)
         .group(fiberGroup)
-         .valueAccessor(function(d) {
+        .valueAccessor(function(d) {
                     return d.value.average;
         })
         .xAxis().ticks(5);
@@ -186,6 +187,7 @@ function proteinPerProduct(ndx){
     dc.rowChart("#proteinContent")
          .width(500)
         .height(300)
+        .margins({top: 10, right: 30, bottom: 40, left: 30})
         .dimension(proteinDim)
         .group(proteinGroup)
          .valueAccessor(function(d) {
@@ -225,6 +227,7 @@ function carbsPerProduct(ndx){
     dc.rowChart("#carbContent")
          .width(500)
         .height(300)
+        .margins({top: 10, right: 30, bottom: 40, left: 30})
         .dimension(carbsDim)
         .group(carbsGroup)
         .colors(mfrColors)
@@ -232,6 +235,147 @@ function carbsPerProduct(ndx){
                     return d.value.average;
         })
         .xAxis().ticks(4);
+}
+function sodiumPerProduct(ndx){
+      var sodiumDim = ndx.dimension(dc.pluck("mfr"));
+        var sodiumGroup =sodiumDim.group().reduce(function(p, v) {
+            p.count++;
+            p.total += v.sodium;
+            p.average = p.total / p.count;
+            return p;
+        },
+        //remove an entry
+        function(p, v) {
+            p.count--;
+            if (p.count == 0) {
+                p.total = 0;
+                p.average = 0;
+            }
+            else {
+                p.total -= v.sodium;
+                p.average = p.total / p.count;
+            }
+            return p;
+        },
+        //initialise values
+        function() {
+            return { count: 0, total: 0, average: 0 }
+    });
+    
+    console.log(sodiumDim.groupAll());
+    
+    dc.rowChart("#sodiumContent")
+         .width(500)
+        .height(300)
+        .margins({top: 10, right: 30, bottom: 40, left: 30})
+        .dimension(sodiumDim)
+        .group(sodiumGroup)
+        .colors(mfrColors)
+         .valueAccessor(function(d) {
+                    return d.value.average;
+        })
+        .xAxis().ticks(4);
+}
+
+function fatPerProduct(ndx){
+      var fatDim = ndx.dimension(dc.pluck("mfr"));
+        var fatGroup = fatDim.group().reduce(function(p, v) {
+            p.count++;
+            p.total += v.fat;
+            p.average = p.total / p.count;
+            return p;
+        },
+        //remove an entry
+        function(p, v) {
+            p.count--;
+            if (p.count == 0) {
+                p.total = 0;
+                p.average = 0;
+            }
+            else {
+                p.total -= v.fat;
+                p.average = p.total / p.count;
+            }
+            return p;
+        },
+        //initialise values
+        function() {
+            return { count: 0, total: 0, average: 0 }
+    });
+    
+    console.log(fatDim.groupAll());
+    
+    dc.rowChart("#fatContent")
+        .width(500)
+        .height(300)
+        .margins({top: 10, right: 30, bottom: 40, left: 30})
+        .dimension(fatDim)
+        .group(fatGroup)
+        .colors(mfrColors)
+         .valueAccessor(function(d) {
+                    return d.value.average;
+        })
+        .xAxis().ticks(4);
+}
+//weight of serving size (oz) to calorie correlation
+function servingSizeCalorieCorrelation(ndx){
+    var servingDim = ndx.dimension(dc.pluck("cups"));
+    
+    var minServing = servingDim.bottom(1)[0].cups;
+    var maxServing = servingDim.top(1)[0].cups;
+    
+    var calorieDim = ndx.dimension(function(d){
+        return [d.cups, d.calories, d.name];
+    })
+    var minCalories = calorieDim.bottom(1)[0].calories;
+    var maxCalories = calorieDim.top(1)[0].calories;
+    
+    var calorieGroup = calorieDim.group().reduceSum(dc.pluck("calories"));
+    console.log(calorieGroup.all());
+    
+    dc.scatterPlot("#servingSizeCalorieCorrelation")
+            .width(600)
+            .height(500)
+            .margins({top: 40, right: 20, bottom: 40, left: 30})
+            .colors(mfrColors)
+            .colorAccessor(function(d){
+                return d.value;
+            })
+            .transitionDuration(2500)
+            .x(d3.scale.linear().domain([0, maxServing]))
+            .xAxisLabel("Serving Size in Cups")
+            .brushOn(false)
+            .symbolSize(8)
+            .clipPadding(20)
+            .yAxisLabel("Calories")
+            .title(function(d){
+               return "There are " +d.key[1] + " calories in " +d.key[0]+ " cup(s) of "+ d.key[2];
+            })
+            .dimension(calorieDim)
+            .group(calorieGroup)
+            .xAxis().ticks(8);
+}
+
+function selectMyCereal(ndx, name, nutrition){
+    var nameDim = ndx.dimension(dc.pluck("name['Special K']"));
+    
+    
+    var nutritionDim = ndx.dimension(function(d){
+        if(d.name == "Special K"){
+        return [d.name];
+        }
+    });
+    var nutritionGroup = nutritionDim.group().reduceSum(dc.pluck("fiber"), ("protein"), ("fat"), ("carbo"));
+    console.log(nutritionGroup.all());
+
+    dc.pieChart("#myCereal")
+                .height(330)
+                .radius(90)
+                .transitionDuration(1500)
+                .colors(mfrColors)
+                .dimension(nutritionDim)
+                .group(nutritionGroup);
+ 
 }
 function sugarPerProduct(ndx){
       var sugarDim = ndx.dimension(dc.pluck("mfr"));
@@ -264,6 +408,7 @@ function sugarPerProduct(ndx){
     dc.rowChart("#sugarContent")
         .width(500)
         .height(300)
+        .margins({top: 10, right: 30, bottom: 40, left: 30})
         .dimension(sugarDim)
         .group(sugarGroup)
         .colors(mfrColors)
@@ -272,116 +417,3 @@ function sugarPerProduct(ndx){
         })
         .xAxis().ticks(4);
 }
-function sodiumPerProduct(ndx){
-      var sodiumDim = ndx.dimension(dc.pluck("mfr"));
-        var sodiumGroup = sodiumDim.group().reduce(function(p, v) {
-            p.count++;
-            p.total += v.sodium;
-            p.average = p.total / p.count;
-            return p;
-        },
-        //remove an entry
-        function(p, v) {
-            p.count--;
-            if (p.count == 0) {
-                p.total = 0;
-                p.average = 0;
-            }
-            else {
-                p.total -= v.sodium;
-                p.average = p.total / p.count;
-            }
-            return p;
-        },
-        //initialise values
-        function() {
-            return { count: 0, total: 0, average: 0 }
-    });
-    
-    console.log(sodiumDim.groupAll());
-    
-    dc.rowChart("#sodiumContent")
-         .width(500)
-        .height(300)
-        .dimension(sodiumDim)
-        .group(sodiumGroup)
-        .colors(mfrColors)
-         .valueAccessor(function(d) {
-                    return d.value.average;
-        })
-        .xAxis().ticks(4);
-}
-function fatPerProduct(ndx){
-      var fatDim = ndx.dimension(dc.pluck("mfr"));
-        var fatGroup = fatDim.group().reduce(function(p, v) {
-            p.count++;
-            p.total += v.fat;
-            p.average = p.total / p.count;
-            return p;
-        },
-        //remove an entry
-        function(p, v) {
-            p.count--;
-            if (p.count == 0) {
-                p.total = 0;
-                p.average = 0;
-            }
-            else {
-                p.total -= v.fat;
-                p.average = p.total / p.count;
-            }
-            return p;
-        },
-        //initialise values
-        function() {
-            return { count: 0, total: 0, average: 0 }
-    });
-    
-    console.log(fatDim.groupAll());
-    
-    dc.rowChart("#fatContent")
-        .width(500)
-        .height(300)
-        .dimension(fatDim)
-        .group(fatGroup)
-        .colors(mfrColors)
-         .valueAccessor(function(d) {
-                    return d.value.average;
-        })
-        .xAxis().ticks(4);
-}
-//weight of serving size (oz) to calorie correlation
-function servingSizeCalorieCorrelation(ndx){
-    var servingDim = ndx.dimension(dc.pluck("cups"));
-    
-    var minServing = servingDim.bottom(1)[0].cups;
-    var maxServing = servingDim.top(1)[0].cups;
-    
-    var calorieDim = ndx.dimension(function(d){
-        return [d.cups, d.calories, d.name];
-    })
-    var minCalories = calorieDim.bottom(1)[0].calories;
-    var maxCalories = calorieDim.top(1)[0].calories;
-    
-    var calorieGroup = calorieDim.group().reduceSum(dc.pluck("calories"));
-    console.log(calorieGroup.all());
-    
-    dc.scatterPlot("#servingSizeCalorieCorrelation")
-            .width(600)
-            .height(500)
-            .margins({top: 40, right: 20, bottom: 40, left: 30})
-            .transitionDuration(2500)
-            .x(d3.scale.linear().domain([0, maxServing]))
-            .xAxisLabel("Serving Size in Cups")
-            .brushOn(false)
-            .symbolSize(8)
-            .clipPadding(20)
-            .yAxisLabel("Calories")
-            .title(function(d){
-               return "There are " +d.key[1] + " calories in " +d.key[0]+ " cup(s) of "+ d.key[2];
-            })
-            .dimension(calorieDim)
-            .group(calorieGroup)
-            .xAxis().ticks(8);
-}
-
