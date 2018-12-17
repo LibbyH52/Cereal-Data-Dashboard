@@ -8,6 +8,8 @@
     <title>Breakfast Cereal Data Dashboard</title>
 
     <!--CSS-->
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <!--Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css" />
     <!--CSS file for loading the graphs-->
@@ -31,47 +33,95 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <h1>Breakfast Cereal Data Dashboard</h1>
-        </div>
-        <div class="row">
-            <div class="col-xs-12-col-md-6" id="breakfast">
-                <h2>Average Calories per Manufacturer</h2>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <h2>Nutrition by Manufacturer</h2>
-                <div class="row" id="proteinContent">
-                    <p>Average Protein Content</p>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#"><img src="assets/images/cereal.png" width="75px" height="75px"/>
+                Breakfast Cereal Data Dashboard</a>
+        </nav>
+    </header>
+    <main class="cerealMain">
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <h2>Nutrition by Manufacturer</h2>
+                    </div>
                 </div>
-                <div class="row" id="fiberContent">
-                    <p>Average Fiber Content</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-               <h2>Some Additional Nutritional Information</h2> 
-            </div>
-            <div class="col-xs-12 col-md-6" id="carbContent"></div>
-            <div class="col-xs-12 col-md-6" id="sodiumContent"></div>
-            <div class="col-xs-12 col-md-6" id="fatContent"></div>
-            <div class="col-xs-12 col-md-6" id="sugarContent"></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 offset-md-4 col-md-8" id="productsPerManufacturer">
-                    <h3>Number of Products Per Manfacturer</h3>
-                </div>
-        </div>
-            <div class="row">
-                <div class="col-xs-12 offset-md-2 col-md-8" id="servingSizeCalorieCorrelation">
-                    <h3>Serving Size to Calorie Correlation</h3>
+                <div class="row">
+                    <div class="col-xs-12-col-md-6" id="breakfast">
+                        <h2>Average Calories per Manufacturer</h2>
+                    </div>
+                    <div class="col-xs-12 offset-md-1 col-md-5">
+                        <h2>Nutrition Content</h2>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-10" id="proteinContent">
+                                <h4>Protein</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-10" id="fiberContent">
+                                <h4>Fiber</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 offset-md-2 col-md-8">
-                <p>There is very little correlation between serving size of the cereal and its calorie content</p>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <h2>Some Additional Nutritional Information</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-4" id="carbContent">
+                        <h4>Carbohydrates</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-4" id="sodiumContent">
+                        <h4>Sodium</h4>
+                    </div>
+                    <div class="col-xs-12 col-md-4" id="fatContent">
+                        <h4>Fat</h4>
+                    </div>
+                    <div class="col-xs-12 offset-md-4 col-md-4" id="sugarContent">
+                        <h4>Sugar</h4>
+                    </div>
+                </div>
             </div>
-    </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 selectCereal" id="cerealSelector">
+                        <h3 class="selectHeading"> <i class="fa fa-utensil-spoon"></i> Select your favourite:</h3>
+                    </div>
+                    <div class="col-xs-12 col-md-8" id="productsPerManufacturer">
+                        <h3>Breakdown of Cereal Manufacturers</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 offset-md-4 col-md-8">
+                        <p>As can be seen in the bar chart above, Kellogg's and General Mills are the most popular cereal manufacturers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 offset-md-2 col-md-8" id="servingSizeCalorieCorrelation">
+                        <h3>Serving Size to Calorie Correlation</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 offset-md-2 col-md-8">
+                        <p>There is very little correlation between serving size of the cereal and its calorie content</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
