@@ -2,7 +2,8 @@
 queue()
     .defer(d3.csv, "assets/data/cereal.csv")
     .await(makeGraphs);
-
+    
+//adds an individual colour to each manufacturer
 var mfrColors = d3.scale.ordinal()
     .domain(["A", "G", "K", "N", "P", "Q", "R"])
     .range(["#003f5c", "#374c80", "#7a5195", "#bc5090", "#ef5675", "#ff764a", "#ffa600"])
@@ -19,6 +20,7 @@ function makeGraphs(error, cerealData) {
         d.sugars = parseInt(d.sugars);
         d.sodium = parseInt(d.sodium);
     })
+    //full manufacturer names (dataset just contains letters)
     cerealData.forEach(function(d) {
         if (d.mfr == "K") {
             d.mfr = "Kellogg's"
@@ -100,9 +102,9 @@ function displayCereals(ndx) {
         }
     );
     dc.barChart("#breakfast")
-        .width(500)
+        .width(550)
         .height(600)
-        .margins({ top: 40, right: 30, bottom: 40, left: 30 })
+        .margins({ top: 40, right: 30, bottom: 70, left: 30 })
         .transitionDuration(1000)
         .dimension(manfacturerDim)
         .group(averageCaloriePerProduct)
@@ -113,7 +115,7 @@ function displayCereals(ndx) {
         .colorAccessor(function(d){
             return d.key
         })
-        .barPadding(.1)
+        .barPadding(.2)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .xAxisLabel("Manufacturer")
@@ -396,7 +398,7 @@ function sugarPerProduct(ndx) {
     //code to draw row chart
 
     dc.rowChart("#sugarContent")
-        .width(450)
+        .width(400)
         .height(250)
         .margins({ top: 10, right: 40, bottom: 40, left: 40 })
         .dimension(sugarDim)
@@ -418,11 +420,13 @@ function servingSizeCalorieCorrelation(ndx) {
 
     var minServing = servingDim.bottom(1)[0].cups;
     var maxServing = servingDim.top(1)[0].cups;
-
+    
+    
     var calorieDim = ndx.dimension(function(d) {
-        return [d.cups, d.calories, d.name];
+        return [d.cups, d.calories, d.name, d.mfr];
     })
-
+    
+    
     var calorieGroup = calorieDim.group();
     console.log(calorieGroup.all());
 
@@ -439,11 +443,11 @@ function servingSizeCalorieCorrelation(ndx) {
         .title(function(d) {
             return "There are " + d.key[1] + " calories in " + d.key[0] + " cup(s) of " + d.key[2];
         })
-        .colorAccessor(function(d) {
-            return d.key;
+       .colors(mfrColors)
+        .colorAccessor(function(d){
+            return d.key[3];
         })
-        .colors(mfrColors)
         .dimension(calorieDim)
         .group(calorieGroup)
-        .xAxis().ticks(8)
+        .xAxis().ticks(10)
 }

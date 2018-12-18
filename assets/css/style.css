@@ -11,29 +11,54 @@ h1, h2, h3, h4{
     font-size: 24px;
     font-weight: 900;
 }
-
-.section{
-    border-bottom: 2px solid #003f5c;
+.selectCereal h3{
+    text-align: left;
+}
+/*******Bottom Border for Middle sections*/
+.borderBottom{
+    border-bottom: 3px solid #003f5c;
     width: 90%;
-    padding: 3em;
-    margin: 0 auto;
+}
+footer{
+    background: #003f5c;
+    height: 100px;
+    color: #ffff;
 }
 /******************************NavBar*/
 .navbar-expand-lg{
     background-color: #2f4b7c;
 }
+/******************************Chart Containers*/
+.section{
+    padding: 3em 2em;
+    width: 90vw;
+    margin: 0 auto;
+}
 /******************************Cereal Container*/
+.selectCereal{
+    padding: 4em 0;
+}
 #selectMenu{
     width: 60px;
     display: block;
     margin: 0 auto;
 }
-.select-cereal{
-    margin-bottom: 50px;
+.pieChartParagraph{
+    font-size: 1em;
+    position: relative;
+    float: right;
+}
+/******************************Charts*/
+/*rotate labels for bars on barChart*/
+#breakfast .x.axis text{
+    transform: scaleY(0.8);
+    transform: rotate(45deg);
+    text-anchor: start !important;
 }
 @media screen and (min-width: 992px ){
     .selectCereal{
         background: url("../images/bowl.png") center center no-repeat;
-        background-size: 90%;
+        background-size: contain;
+        padding: 2em;
     }
 }
