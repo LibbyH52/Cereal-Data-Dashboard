@@ -1,19 +1,27 @@
 /*css styles*/
 /****************************headings*/
-h1, h2, h3, h4{
+h1, h2, h3{
     text-align: center;
+}
+h2{
+    margin-bottom: 2em;
+    color: #374c80;
+    font-weight: 900;
+    font-size: 2em;
+}
+h3{
+    font-size: 2em;
+    color: #ffa600;
+    text-align: center;
+    font-weight: 900;
 }
 .mainHeading{
     text-align: center;
 }
 .selectHeading{
-    color:#ffa600;
     font-size: 24px;
-    font-weight: 900;
 }
-.selectCereal h3{
-    text-align: left;
-}
+
 /*******Bottom Border for Middle sections*/
 .borderBottom{
     border-bottom: 3px solid #003f5c;
@@ -49,11 +57,22 @@ footer{
     float: right;
 }
 /******************************Charts*/
-/*rotate labels for bars on barChart*/
+/*Removes the tick marks on the x-axis of the barChart*/
+#breakfast .x.axis .tick line{
+    display: none;
+}
+/*rotates labels for bars on barChart*/
 #breakfast .x.axis text{
-    transform: scaleY(0.8);
-    transform: rotate(45deg);
-    text-anchor: start !important;
+    transform: rotate(90deg) translate(-20px, -15px);
+    font-size: .8em;
+    font-weight: 800;
+    fill: #ffff;
+    text-anchor: end !important;
+}
+.barChartParagraph{
+    margin-top: 20px;
+    font-size: 18px;
+    width: 90%;
 }
 @media screen and (min-width: 992px ){
     .selectCereal{
