@@ -35,12 +35,32 @@
 <body>
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#"><img src="assets/images/cereal.png" width="75px" height="75px"/>
-                Breakfast Cereal Data Dashboard</a>
+            <a class="navbar-brand" href="#homeSection"><img src="assets/images/cereal.png" width="75px" height="75px"/>
+                Breakfast Cereal Data Dashboard</a> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productsPerManufacturer">Cereal Manufacturers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nutritionRow">Nutritional Breakdown</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#additionalNutrition">Some More nutirtional information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servingSize">Serving size info</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main class="cerealMain">
-        <section class="section borderBottom">
+        <section class="section borderBottom" id="homeSection">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-4 selectCereal" id="cerealSelector">
@@ -51,8 +71,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-9 offset-md-4 col-md-8">
-                        <p class="pieChartParagraph">As can be seen in the pie chart above Kellogg's and General Mills are the most popular cereal manufacturers</p>
+                    <div class="col-xs-12 offset-md-4 col-md-8">
+                        <p class="pieChartParagraph">As can be seen in the pie chart above, Kellogg's and General Mills are the largest cereal manufacturers</p>
                     </div>
                 </div>
             </div>
@@ -61,30 +81,32 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
-                        <h2>Nutrition by Manufacturer</h2>
+                        <h2>Nutritional Breakdown by Manufacturer</h2>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12-col-md-6" id="breakfast">
-                        <h2>Average Calories per Manufacturer</h2>
-                    </div>
-                    <div class="col-xs-12 offset-md-1 col-md-5">
-                        <h2>Nutritional Content</h2>
+                <div class="row" id="nutritionRow">
+                    <div class="col-xs-12 col-md-6" id="breakfast">
+                        <h3>Calorie Content</h3>
                         <div class="row">
-                            <div class="col-xs-12 col-md-10" id="proteinContent">
-                                <h4>Protein</h4>
+                            <p class="barChartParagraph">The bar chart below indicates that Ralston Purina's products have the most calories, averaging at about 115 calories per product.</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-10 rowChart" id="proteinContent">
+                                <h3>Protein Content</h3>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12 col-md-10" id="fiberContent">
-                                <h4>Fiber</h4>
+                            <div class="col-xs-12 col-md-10 rowChart" id="fiberContent">
+                                <h3>Fiber Content</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section borderBottom">
+        <section class="section borderBottom moreInfo" id="additionalNutrition">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
@@ -92,26 +114,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4" id="carbContent">
-                        <h4>Carbohydrates</h4>
+                    <div class="col-xs-12 col-md-4 rowChart" id="carbContent">
+                        <h3>Carbohydrates</h3>
                     </div>
-                    <div class="col-xs-12 col-md-4" id="sodiumContent">
-                        <h4>Sodium</h4>
+                    <div class="col-xs-12 col-md-4 rowChart" id="sodiumContent">
+                        <h3>Sodium</h3>
                     </div>
-                    <div class="col-xs-12 col-md-4" id="fatContent">
-                        <h4>Fat</h4>
+                    <div class="col-xs-12 col-md-4 rowChart" id="fatContent">
+                        <h3>Fat</h3>
                     </div>
-                    <div class="col-xs-12 offset-md-4 col-md-4" id="sugarContent">
-                        <h4>Sugar</h4>
+                    <div class="col-xs-12 offset-md-4 col-md-4 rowChart" id="sugarContent">
+                        <h3>Sugar</h3>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="section" id="servingSize">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 offset-md-2 col-md-8" id="servingSizeCalorieCorrelation">
-                        <h3>Serving Size to Calorie Correlation</h3>
+                        <h2 class="scatterPlotHeader">Serving Size to Calorie Correlation</h2>
                     </div>
                 </div>
                 <div class="row">
