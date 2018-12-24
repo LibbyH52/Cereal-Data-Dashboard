@@ -21,7 +21,24 @@ h3{
 .selectHeading{
     font-size: 24px;
 }
-
+/***************************Navbar Styles*/
+.navbar-expand-lg{
+    background-color: #2f4b7c;
+}
+.navbar-nav .nav-item .nav-link{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+}
+.navbar-nav .nav-item .nav-link:hover{
+    color: #2f4b7c;
+    background: #ffffff;
+    font-weight: 800;
+    text-decoration: none;
+}
+.navbar-nav .nav-item .nav-link:visited{
+    text-decoration: none;
+}
 /*******Bottom Border for Middle sections*/
 .borderBottom{
     border-bottom: 3px solid #003f5c;
@@ -31,10 +48,6 @@ footer{
     background: #003f5c;
     height: 100px;
     color: #ffff;
-}
-/******************************NavBar*/
-.navbar-expand-lg{
-    background-color: #2f4b7c;
 }
 /******************************Chart Containers*/
 .section{
@@ -57,6 +70,10 @@ footer{
     float: right;
 }
 /******************************Charts*/
+#productsPerManufacturer .legend{
+    font-size: 18px;
+    fill: #ffff;
+}
 /*Removes the tick marks on the x-axis of the barChart*/
 #breakfast .x.axis .tick line{
     display: none;
@@ -72,7 +89,10 @@ footer{
 .barChartParagraph{
     margin-top: 20px;
     font-size: 18px;
-    width: 90%;
+}
+.rowChart text{
+    font-weight: 800;
+    font-size: 1em;
 }
 @media screen and (min-width: 992px ){
     .selectCereal{
