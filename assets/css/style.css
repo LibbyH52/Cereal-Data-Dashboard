@@ -1,25 +1,26 @@
 /*css styles*/
 /****************************headings*/
 h1, h2, h3{
-    text-align: center;
+    text-align: left;
 }
 h2{
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     color: #374c80;
     font-weight: 900;
     font-size: 2em;
 }
 h3{
-    font-size: 2em;
+    font-size: 1.5em;
     color: #ffa600;
     text-align: center;
     font-weight: 900;
 }
 .mainHeading{
-    text-align: center;
+    text-align: left;
 }
 .selectHeading{
-    font-size: 24px;
+    font-size: 1.5em;
+    text-align: left;
 }
 /***************************Navbar Styles*/
 .navbar-expand-lg{
@@ -42,7 +43,11 @@ h3{
 /*******Bottom Border for Middle sections*/
 .borderBottom{
     border-bottom: 3px solid #003f5c;
-    width: 90%;
+    width: 100%;
+}
+
+.container{
+    margin: 0 auto;
 }
 footer{
     background: #003f5c;
@@ -52,7 +57,8 @@ footer{
 /******************************Chart Containers*/
 .section{
     padding: 3em 2em;
-    width: 90vw;
+    width: 100vw;
+    padding: 5px;
     margin: 0 auto;
 }
 /******************************Cereal Container*/
@@ -60,9 +66,13 @@ footer{
     padding: 4em 0;
 }
 #selectMenu{
-    width: 60px;
     display: block;
+    padding: 0;
     margin: 0 auto;
+}
+#pieChart{
+    padding: 0;
+    margin: 0;
 }
 .pieChartParagraph{
     font-size: 1em;
@@ -90,14 +100,27 @@ footer{
     margin-top: 20px;
     font-size: 18px;
 }
-.rowChart text{
-    font-weight: 800;
-    font-size: 1em;
+@media screen and (min-width: 768px ){
+    h1, h2, h3{
+    text-align: center;
+    }
+    .section{
+        width: 100%;
+    }
 }
 @media screen and (min-width: 992px ){
-    .selectCereal{
+    h1, h2, h3{
+    text-align: center;
+    }
+    .section{
+        width: 90vw;
+    }
+    .borderBottom{
+        width: 90%;
+    }
+    /*.selectCereal{
         background: url("../images/bowl.png") center center no-repeat;
         background-size: contain;
         padding: 2em;
-    }
+    }*/
 }
