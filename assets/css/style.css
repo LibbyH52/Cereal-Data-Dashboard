@@ -1,10 +1,12 @@
-/*css styles*/
+/*********import code for google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Oswald: 100, 200, 300, 400, 500, 600, 700, 800');
 /****************************headings*/
 h1, h2, h3{
     text-align: left;
+    font-family: 'Oswald', sans-serif;
 }
 h2{
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     color: #374c80;
     font-weight: 900;
     font-size: 2em;
@@ -14,9 +16,6 @@ h3{
     color: #ffa600;
     text-align: center;
     font-weight: 900;
-}
-.mainHeading{
-    text-align: left;
 }
 .selectHeading{
     font-size: 1.5em;
@@ -37,15 +36,33 @@ h3{
     font-weight: 800;
     text-decoration: none;
 }
-.navbar-nav .nav-item .nav-link:visited{
+.navbar-nav .nav-item a .nav-link:visited{
     text-decoration: none;
+    color: #ffffff;
+    background: #2f4b7c;
+}
+/**********************Font Awesome Icons*/
+.footer i{
+    font-size: 28px;
+    padding: 8px;
+    width: 15%;
 }
 /*******Bottom Border for Middle sections*/
 .borderBottom{
     border-bottom: 3px solid #003f5c;
     width: 100%;
 }
-
+.row{
+    padding: 1em;
+}
+p{
+    width: 90%;
+    margin-top: 20px;
+    font-size: 1em;
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+    text-align: center;
+}
 .container{
     margin: 0 auto;
 }
@@ -56,9 +73,8 @@ footer{
 }
 /******************************Chart Containers*/
 .section{
-    padding: 3em 2em;
-    width: 100vw;
     padding: 5px;
+    width: 100vw;
     margin: 0 auto;
 }
 /******************************Cereal Container*/
@@ -70,16 +86,11 @@ footer{
     padding: 0;
     margin: 0 auto;
 }
+/******************************Charts*/
 #pieChart{
     padding: 0;
-    margin: 0;
+    margin: 10px 0;
 }
-.pieChartParagraph{
-    font-size: 1em;
-    position: relative;
-    float: right;
-}
-/******************************Charts*/
 #productsPerManufacturer .legend{
     font-size: 18px;
     fill: #ffff;
@@ -95,10 +106,6 @@ footer{
     font-weight: 800;
     fill: #ffff;
     text-anchor: end !important;
-}
-.barChartParagraph{
-    margin-top: 20px;
-    font-size: 18px;
 }
 @media screen and (min-width: 768px ){
     h1, h2, h3{
@@ -118,9 +125,4 @@ footer{
     .borderBottom{
         width: 90%;
     }
-    /*.selectCereal{
-        background: url("../images/bowl.png") center center no-repeat;
-        background-size: contain;
-        padding: 2em;
-    }*/
 }

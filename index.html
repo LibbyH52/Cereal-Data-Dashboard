@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
      <!--Bootstrap CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css" />
+    <!--Font Awesome-->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <!--CSS file for loading the graphs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.9/dc.min.css" type="text/css" />
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
     <!--Custom CSS-->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
@@ -44,50 +48,57 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#productsPerManufacturer">Home</a>
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#additionalNutrition">Nutritional Info</a>
+                        <a class="nav-link" href="#productsPerManufacturer">Manufacturers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#servingSize">Serving size info</a>
+                        <a class="nav-link" href="#nutrition">Nutrition</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#selectMenu">Serving size info</a>
+                        <a class="nav-link" href="#servingSizeCalorieCorrelation">Serving Size</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
       <main class="cerealMain">
-        <section class="section borderBottom">
+        <section class="section borderBottom" id="home">
             <div class="container">
                  <div class="row">
                     <div class="col-sm-8 offset-sm-2 offset-md-3 col-md-6 offset-lg-4 col-lg-4 selectCereal" id="cerealSelector">
                         <h3 class="selectHeading">Select your favourite cereal:</h3>
                     </div>
-                    </div>
+                </div>
                 <div class="row">
                       <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6" id="productsPerManufacturer">
                         <h2>Cereal Manufacturers</h2>
-                        <p class="pieChartParagraph">As can be seen in the pie chart above, Kellogg's and General Mills are the 
+                        <p>As can be seen in the pie chart above, Kellogg's and General Mills are the 
                                             largest cereal manufacturers</p>
                     </div>
                     <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6" id="breakfast">
                         <h2>Calories per Manufacturer</h2>
-                         <p class="barChartParagraph">The bar chart below indicates that Ralston Purina's products have the most 
+                         <p>The bar chart below indicates that Ralston Purina's products have the most 
                          calories, averaging at about 115 calories per product.</p>
                     </div>
                 </div>
        </section>
       <section class="section borderBottom moreInfo">
-            <div class="container">
+            <div class="container" id="nutrition">
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
                         <h2>Nutritional Information</h2>
                     </div>
                 </div>
                 <div class="row">
+                     <div class="col-sm-12 offset-md-1 col-md-10 col-lg-10">
+                    <p>The row charts below contain nutritional information regarding the average
+                    amount of protein, fiber, carbohydrates, sodium, fat and sugar each manufacturer's 
+                    products contains.</p>
+                    </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-4" id="proteinContent">
                             <h3>Protein Content</h3>
                         </div>
@@ -114,25 +125,20 @@
                 <div class="row">
                     <div class="col-SM-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8" id="servingSizeCalorieCorrelation">
                         <h2 class="scatterPlotHeader">Serving Size to Calorie Correlation</h2>
+                        <p>As can be seen below, there is very little correlation between serving size of the cereal and its calorie content</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 offset-md-2 col-md-8">
-                        <p>There is very little correlation between serving size of the cereal and its calorie content</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-               
-                </div>
-                
             </div>
         </section>
     </main>
-    <footer>
-        Libby Henry
+    <footer class="footer">
+        <div class="row">
+            <div class="col-sm-12 offset-md-3 col-md-6 offset-lg-4  col-lg-4">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                <span class="icon"><i class="fab fa-google-plus-square"></i></span>
+            </div>
+        </div>
     </footer>
 </body>
 
