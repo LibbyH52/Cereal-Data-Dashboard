@@ -1,128 +1,161 @@
 /*********import code for google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Oswald: 100, 200, 300, 400, 500, 600, 700, 800');
+
 /****************************headings*/
-h1, h2, h3{
-    text-align: left;
+h1 {
+    display: inline;
     font-family: 'Oswald', sans-serif;
 }
-h2{
-    margin-bottom: 1em;
+h2 {
     color: #374c80;
-    font-weight: 900;
     font-size: 2em;
-}
-h3{
-    font-size: 1.5em;
-    color: #ffa600;
-    text-align: center;
     font-weight: 900;
+    margin-bottom: 1em;
+    text-align: center;
 }
-.selectHeading{
+h3 {
+    color: #ffa600;
     font-size: 1.5em;
+    font-weight: 800;
+    text-align: center;
+}
+.selectHeading {
     text-align: left;
 }
+
 /***************************Navbar Styles*/
-.navbar-expand-lg{
+.navbar {
     background-color: #2f4b7c;
 }
-.navbar-nav .nav-item .nav-link{
+.navbar-nav .nav-item .nav-link {
     color: #ffffff;
     font-size: 18px;
     font-weight: 800;
 }
-.navbar-nav .nav-item .nav-link:hover{
-    color: #2f4b7c;
+.navbar-nav .nav-item .nav-link:hover {
     background: #ffffff;
+    color: #2f4b7c;
     font-weight: 800;
     text-decoration: none;
 }
-.navbar-nav .nav-item a .nav-link:visited{
-    text-decoration: none;
-    color: #ffffff;
-    background: #2f4b7c;
-}
+
 /**********************Font Awesome Icons*/
-.footer i{
-    font-size: 28px;
-    padding: 8px;
-    width: 15%;
+i {
+    font-size: 32px;
+    padding: 20px;
+    width: 20%;
 }
-/*******Bottom Border for Middle sections*/
-.borderBottom{
+
+/************Styles for Mid sections*/
+.borderBottom {
     border-bottom: 3px solid #003f5c;
     width: 100%;
 }
-.row{
+
+/****************Paragraphs for Chart Descriptions*/
+p {
+    width: 90%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1em;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/*****************************************Footer*/
+footer {
+    background: #003f5c;
+    color: #ffffff;
+    height: 100px;
+}
+
+/******************************Chart Containers*/
+.container {
+    margin: 0 auto;
+}
+.row {
     padding: 1em;
 }
-p{
-    width: 90%;
-    margin-top: 20px;
-    font-size: 1em;
-    font-family: 'Oswald', sans-serif;
-    position: relative;
-    text-align: center;
-}
-.container{
+.section {
     margin: 0 auto;
-}
-footer{
-    background: #003f5c;
-    height: 100px;
-    color: #ffff;
-}
-/******************************Chart Containers*/
-.section{
     padding: 5px;
-    width: 100vw;
-    margin: 0 auto;
+    width: 100%;
 }
-/******************************Cereal Container*/
-.selectCereal{
+
+/***************Styles for Select Menu*/
+
+.selectCereal {
     padding: 4em 0;
 }
-#selectMenu{
+
+#selectMenu {
     display: block;
-    padding: 0;
     margin: 0 auto;
-}
-/******************************Charts*/
-#pieChart{
     padding: 0;
+}
+
+/******************************Charts*/
+
+#pieChart {
     margin: 10px 0;
+    padding: 0;
 }
-#productsPerManufacturer .legend{
+
+#productsPerManufacturer .legend {
+    color: #ffffff;
     font-size: 18px;
-    fill: #ffff;
 }
+
 /*Removes the tick marks on the x-axis of the barChart*/
-#breakfast .x.axis .tick line{
+
+#breakfast {
+    width: 100% !important;
+}
+
+#breakfast .x.axis .tick line {
     display: none;
 }
+
 /*rotates labels for bars on barChart*/
-#breakfast .x.axis text{
-    transform: rotate(90deg) translate(-20px, -15px);
+
+#breakfast .x.axis text {
+    fill: #ffffff;
     font-size: .8em;
     font-weight: 800;
-    fill: #ffff;
     text-anchor: end !important;
+    -webkit-transform: rotate(90deg) translate(-20px, -15px);
+    -moz-transform: rotate(90deg) translate(-20px, -15px);
+    -ms-transform: rotate(90deg) translate(-20px, -15px);
+    -o-transform: rotate(90deg) translate(-20px, -15px);
+    transform: rotate(90deg) translate(-20px, -15px);
 }
-@media screen and (min-width: 768px ){
-    h1, h2, h3{
-    text-align: center;
+
+#servingSizeCalorieCorrelation {
+    margin: 0 auto;
+}
+
+/***************************Media Queries*/
+
+@media screen and (min-width: 768px) {
+    h1,
+    h2,
+    h3 {
+        text-align: center;
     }
-    .section{
+    .section {
         width: 100%;
     }
 }
-@media screen and (min-width: 992px ){
-    h1, h2, h3{
-    text-align: center;
+
+@media screen and (min-width: 992px) {
+    h1,
+    h2,
+    h3 {
+        text-align: center;
     }
-    .section{
-        width: 90vw;
+    .section {
+        width: 90%;
     }
-    .borderBottom{
+    .borderBottom {
         width: 90%;
     }
 }
