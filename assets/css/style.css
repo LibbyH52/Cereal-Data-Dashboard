@@ -40,7 +40,7 @@ h3 {
 }
 
 /**********************Font Awesome Icons*/
-i {
+.icon{
     font-size: 32px;
     padding: 20px;
     width: 20%;
@@ -66,6 +66,9 @@ footer {
     background: #003f5c;
     color: #ffffff;
     height: 100px;
+}
+footer a{
+    color: #ffffff;
 }
 
 /******************************Chart Containers*/

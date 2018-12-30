@@ -105,7 +105,7 @@ function displayCereals(ndx) {
     dc.barChart("#breakfast")
         .width(550)
         .height(400)
-        .margins({ top: 20, right: 30, bottom: 30, left: 30 })
+        .margins({ top: 10, right: 30, bottom: 10, left: 30 })
         .transitionDuration(1000)
         .dimension(manfacturerDim)
         .group(averageCaloriePerProduct)
