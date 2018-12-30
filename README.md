@@ -57,7 +57,21 @@ and cereal name.
 * DC , D3, Crossfilter, Queue
 
 ## Testing
-charts, other people
+I validated my HTML using the W3 validator. I received no errors or warnings.
+My CSS file was checked using the W3C CSS Validation service I received no errors or warnings 
+<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+<a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="Valid CSS!" />
+    </a>
+</p>
+
 
 ## Deployment
 
@@ -69,7 +83,8 @@ The full names of the breakfast cereal manufacturers were obtained from
 [here](https://www.kaggle.com/jeandsantos/breakfast-cereals-data-analysis-and-clustering)
 The code for rotating the text on my bar chart I got from [JS fiddle](https://jsfiddle.net/geotheory/mvhtqu17/)
 The dataset I used for analysis was obtained from [kaggle.com](https://www.kaggle.com/crawford/80-cereals/)
-I got the code for my navabr from [bootswatch](https://bootswatch.com/pulse/)
+I got the code for my navbar from [bootswatch](https://bootswatch.com/pulse/). The only change I made was to
+remove the 'expand' class as I wanted a collapsed navbar on all screen sizes
 CSS code for removing the tick marks on the bar chart was taken from the fourth answer (Andrew) [here](https://github.com/c3js/c3/issues/876)
 The colour scheme for my charts, borders, header and footer was gotten from 
 [here](https://learnui.design/tools/data-color-picker.html#palette)
