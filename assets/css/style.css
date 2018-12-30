@@ -98,9 +98,8 @@ footer a{
 
 /******************************Charts*/
 
-#pieChart {
-    margin: 10px 0;
-    padding: 0;
+.pieChart {
+    margin-bottom: 40px;
 }
 
 #productsPerManufacturer .legend {

@@ -128,8 +128,8 @@ function showManufacturer(ndx) {
     var manufacturerGroup = manufacturerDim.group();
 
     dc.pieChart("#productsPerManufacturer")
-        .height(300)
-        .radius(150)
+        .height(320)
+        .radius(160)
         .innerRadius(75)
         .transitionDuration(1500)
         .colors(mfrColors)
@@ -138,7 +138,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(30).itemHeight(35).gap(10))
+        .legend(dc.legend().x(0).y(40).itemHeight(35).gap(10))
         .label(function(d) {
             return d.value;
         })
