@@ -101,7 +101,6 @@ function displayCereals(ndx) {
             return { count: 0, total: 0, average: 0 }
         }
     );
-    var width = $("#breakfast").innerWidth(90);
     dc.barChart("#breakfast")
         .width(550)
         .height(400)
@@ -128,8 +127,8 @@ function showManufacturer(ndx) {
     var manufacturerGroup = manufacturerDim.group();
 
     dc.pieChart("#productsPerManufacturer")
-        .height(320)
-        .radius(160)
+        .height(300)
+        .radius(140)
         .innerRadius(75)
         .transitionDuration(1500)
         .colors(mfrColors)
@@ -138,7 +137,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(10).itemHeight(40).gap(5))
+        .legend(dc.legend().x(0).y(10).itemHeight(35).gap(5))
         .label(function(d) {
             return d.value;
         })
@@ -174,7 +173,7 @@ function showFiberPerProduct(ndx) {
     dc.rowChart("#fiberContent")
         .width(350)
         .height(250)
-        .margins({ top: 15, right: 40, bottom: 40, left: 40 })
+        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(fiberDim)
         .colorAccessor(function(d) {
             return d.key;
@@ -219,7 +218,7 @@ function proteinPerProduct(ndx) {
     dc.rowChart("#proteinContent")
         .width(350)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 40 })
+        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(proteinDim)
         .group(proteinGroup)
         .valueAccessor(function(d) {
@@ -264,7 +263,7 @@ function carbsPerProduct(ndx) {
     dc.rowChart("#carbContent")
         .width(350)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 40 })
+        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(carbsDim)
         .group(carbsGroup)
         .colorAccessor(function(d) {
@@ -308,7 +307,7 @@ function sodiumPerProduct(ndx) {
     dc.rowChart("#sodiumContent")
         .width(350)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 40 })
+        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sodiumDim)
         .group(sodiumGroup)
         .colorAccessor(function(d) {
@@ -353,7 +352,7 @@ function fatPerProduct(ndx) {
     dc.rowChart("#fatContent")
         .width(350)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 40 })
+        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(fatDim)
         .group(fatGroup)
         .colorAccessor(function(d) {
@@ -398,7 +397,7 @@ function sugarPerProduct(ndx) {
     dc.rowChart("#sugarContent")
         .width(350)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 40 })
+        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sugarDim)
         .group(sugarGroup)
         .colorAccessor(function(d) {
