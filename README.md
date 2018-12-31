@@ -8,7 +8,7 @@ My dashboard attempts to achieve its goal by displaying the charts in an easily 
 is also a navbar at the top which contains links to the various sections within the dashboard. It is also
 possible to navigate through the site using the mousepad or arrow keys on a laptop or desktop. The site
 provides information for users regrading nutritional content of the various cereals broken down by manufacturer.
-The charts can be filtered based on manufacturer and also by using the select menu at the top to find out 
+The charts can be filtered based on manufacturer and also use the select menu at the top to find out 
 more about their favourite cereal.
 
 ##### User Stories
@@ -71,14 +71,23 @@ My CSS file was checked using the W3C CSS Validation service I received no error
         alt="Valid CSS!" />
     </a>
 </p>
-##### Browser Testing
-The first tests I ran on my dashboard were to ensure that the charts were being filtered correctly. 
-I tested this out in Firefox and Chrome by clicking on a particular manufaturer in the each of the charts
-and checking that all other charts responded accordingly. 
-I also tested the navbar by clicking on each of the links to make sure I was taken to the relevant section of 
-the dashboard. 
-Everything worked as I expected. 
 
+The instructions stated that charts using d3 are designed for desktop and large screen viewing and 
+only our containers are expected to be responsive. For this reason, my focus was on tablet screens and above.
+I tried to make sure that the containers as responsive as possible.................
+I examined my dashboard in both firefox and chrome on the following devices: 
+
+ipad
+ipad pro
+kindle fire hdx
+laptop with hidpi screen
+laptop with mdpi screen
+laptop with touch
+1080p Full HD Television
+
+I checked that the charts filtered correctly, the select menu worked as it should and the navigation links were 
+funcitonal. The only small issue I had was getting the tooltip to appear on the scatter plot points when the device
+was in responsive more.
 ## Deployment
 This site has been deployed via GitHub.
 
