@@ -106,7 +106,7 @@ function displayCereals(ndx) {
         .width(550)
         .height(400)
         .margins({ top: 10, right: 30, bottom: 10, left: 30 })
-        .transitionDuration(1000)
+        .transitionDuration(2000)
         .dimension(manfacturerDim)
         .group(averageCaloriePerProduct)
         .valueAccessor(function(d) {
@@ -138,7 +138,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(40).itemHeight(35).gap(10))
+        .legend(dc.legend().x(0).y(10).itemHeight(40).gap(5))
         .label(function(d) {
             return d.value;
         })
