@@ -77,17 +77,19 @@ only our containers are expected to be responsive. For this reason, my focus was
 I tried to make sure that the containers as responsive as possible.................
 I examined my dashboard in both firefox and chrome on the following devices: 
 
-ipad
-ipad pro
-kindle fire hdx
-laptop with hidpi screen
-laptop with mdpi screen
-laptop with touch
+iPad
+iPad Mini
+iPad pro
+Kindle Fire HDX
+Laptop with HiDPI screen
+Laptop with MDPI screen
+Laptop with touch
 1080p Full HD Television
 
-I checked that the charts filtered correctly, the select menu worked as it should and the navigation links were 
-funcitonal. The only small issue I had was getting the tooltip to appear on the scatter plot points when the device
-was in responsive more.
+I checked that the charts filtered correctly, the select menu worked as it should and, that the navigation links were 
+functional. The only small issue I had was getting the tooltip to appear on the scatter plot points when the device
+was in responsive mode. I have noticed this on other sites too and couldn't find a solution.
+
 ## Deployment
 This site has been deployed via GitHub.
 
