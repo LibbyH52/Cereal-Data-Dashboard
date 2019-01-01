@@ -449,3 +449,12 @@ function servingSizeCalorieCorrelation(ndx) {
         .group(calorieGroup)
         .xAxis().ticks(10)
 }
+
+d3.select('#resetButton')
+    .on('click', function() {
+      dc.filterAll();
+  		dc.redrawAll();
+
+      dc.filterAll();
+      dc.redrawAll();
+});

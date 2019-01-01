@@ -72,10 +72,10 @@ My CSS file was checked using the W3C CSS Validation service I received no error
     </a>
 </p>
 
-The instructions stated that charts using d3 are designed for desktop and large screen viewing and 
-only our containers are expected to be responsive. For this reason, my focus was on tablet screens and above.
-I tried to make sure that the containers as responsive as possible.................
-I examined my dashboard in both firefox and chrome on the following devices: 
+I tried to make sure that the containers were as responsive as possible without sacrificing chart quality. 
+For this reason, my dashboard is best viewed on tablet, laptop or desktop computers. I checked that the charts 
+filtered correctly, the select menu worked as it should and that the navigation links were functional.
+I examined my dashboard in both Firefox and Chrome on the following devices: 
 
 iPad
 iPad Mini
@@ -86,9 +86,6 @@ Laptop with MDPI screen
 Laptop with touch
 1080p Full HD Television
 
-I checked that the charts filtered correctly, the select menu worked as it should and, that the navigation links were 
-functional. The only small issue I had was getting the tooltip to appear on the scatter plot points when the device
-was in responsive mode. I have noticed this on other sites too and couldn't find a solution.
 
 ## Deployment
 This site has been deployed via GitHub.
@@ -106,7 +103,7 @@ CSS code for removing the tick marks on the bar chart was taken from the fourth 
 The colour scheme for my charts, borders, header and footer was gotten from 
 [here](https://learnui.design/tools/data-color-picker.html#palette)
 The JavaScript code to collapse the Hamburger menu was copied from [here:](https://stackoverflow.com/a/32336582)
-
+The code for resetting the charts from their filtered state was gotten from [here:] (http://jsfiddle.net/gordonwoodhull/yu1swf2x/1/)
 #### Media
 The cereal image in my Navabr I got from [pixabay](https://pixabay.com/en/cereal-breakfast-milk-bowl-healthy-32149/)
 
