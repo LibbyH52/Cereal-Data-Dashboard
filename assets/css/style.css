@@ -45,13 +45,6 @@ h3 {
     text-decoration: none;
 }
 
-/**********************Font Awesome Icons*/
-.icon{
-    font-size: 32px;
-    padding: 20px;
-    width: 25%;
-}
-
 /************Styles for Mid sections*/
 .borderBottom {
     border-bottom: 3px solid #003f5c;
@@ -67,13 +60,29 @@ p {
     text-align: left;
 }
 
-.btn-success{
+.btn,
+.btn:active,
+.btn:active:focus,
+.btn:focus,
+.btn:hover,
+.btn:visited{
     background-color: #bc5090;
+    border: 1px solid #bc5090;
+    box-shadow: none;
+    color: #ffffff;
     font-size: 1em;
     font-weight: 800;
     margin: 0 auto;
+    outline: none;
     width: 100%;
 }
+
+/**********************Font Awesome Icons*/
+.icon{
+    font-size: 3em;
+    padding: 40px;
+}
+
 /*****************************************Footer*/
 footer {
     background: #003f5c;
@@ -110,21 +119,18 @@ footer a{
 }
 
 /******************************Charts*/
-
+.chart{
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+}
 .pieChart {
     margin-bottom: 40px;
 }
-
-#productsPerManufacturer .legend {
-    color: #ffffff;
-    font-size: 18px;
+#productsPerManufacturer{
+    height: 500px;
 }
-
 /*Removes the tick marks on the x-axis of the barChart*/
-
-#breakfast {
-    width: 100% !important;
-}
 
 #calorieContent .x.axis .tick line {
     display: none;
