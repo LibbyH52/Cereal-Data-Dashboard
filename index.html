@@ -26,11 +26,10 @@
     <header class="header">
         <nav class="navbar navbar-dark">
             <a class="navbar-brand" href="#"><img src="assets/images/cereal.png" width="75" height="75" alt="navBar brand"/>
-                <h1>Breakfast Cereal Data Dashboard</h1></a>
+                <h1>Breakfast Cereal Dashboard</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
              </button>
-
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
@@ -53,16 +52,16 @@
         <section class="section borderBottom" id="home">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8 offset-sm-2 offset-md-3 col-md-6 offset-lg-4 col-lg-4 selectCereal" id="cerealSelector">
+                    <div class="col-sm-8 offset-sm-2 offset-md-3 col-md-6 offset-lg-4 col-lg-4 selectCereal chart" id="cerealSelector">
                         <h3 class="selectHeading">Select your favourite cereal:</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 pieChart" id="productsPerManufacturer">
+                    <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 pieChart chart" id="productsPerManufacturer">
                         <h2>Cereal Manufacturers</h2>
                         <p>As can be seen in the pie chart above, Kellogg's and General Mills are the largest cereal manufacturers</p>
                     </div>
-                    <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6" id="calorieContent">
+                    <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 chart" id="calorieContent">
                         <h2>Calories per Manufacturer</h2>
                         <p>The bar chart below indicates that Ralston Purina's products have the most calories, averaging at about 115 calories per product.</p>
                     </div>
@@ -82,22 +81,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-4 rowChart" id="proteinContent">
+                    <div class="col-sm-12 col-md-6 col-lg-4 chart" id="proteinContent">
                         <h3>Protein Content</h3>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-4 rowChart" id="fiberContent">
+                    <div class="col-sm-12 col-md-6 col-lg-4 chart" id="fiberContent">
                         <h3>Fiber Content</h3>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-4 rowChart" id="carbContent">
+                    <div class="col-sm-12 col-md-6 col-lg-4 chart" id="carbContent">
                         <h3>Carbohydrates</h3>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-4 rowChart" id="sodiumContent">
+                    <div class="col-sm-12 col-md-6 col-lg-4 chart" id="sodiumContent">
                         <h3>Sodium</h3>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-4 rowChart" id="fatContent">
+                    <div class="col-sm-12 col-md-6 col-lg-4 chart" id="fatContent">
                         <h3>Fat</h3>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-4 rowChart" id="sugarContent">
+                    <div class="col-sm-12 col-md-6 col-lg-4 chart" id="sugarContent">
                         <h3>Sugar</h3>
                     </div>
                 </div>
@@ -106,14 +105,14 @@
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6" id="servingSizeCalorieCorrelation">
+                    <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6 chart" id="servingSizeCalorieCorrelation">
                         <h2 class="scatterPlotHeader" id="servingSize">Serving Size to Calorie Correlation</h2>
                         <p>As can be seen below, there is very little correlation between serving size and calorie content</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-8 offset-sm-4 offset-md-4 col-md-4 offset-lg-4 col-lg-4">
-                        <button type="button" class="btn btn-success" id="resetButton">Reset All Charts</button>
+                        <button type="button" class="btn" id="resetButton">Reset All Charts</button>
                     </div>
                 </div>
             </div>
@@ -139,7 +138,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
     <!--Custom JS file for charts-->
-    <script src="assets/js/chart.js"></script>
+    <!--<script src="assets/js/chart.js"></script>-->
+    <script src="assets/js/charts2.js"></script>
     <script src="assets/js/nav.js"></script>
 </body>
 
