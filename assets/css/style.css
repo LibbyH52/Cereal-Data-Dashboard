@@ -126,11 +126,11 @@ footer a{
     width: 100% !important;
 }
 
-#breakfast .x.axis .tick line {
+#calorieContent .x.axis .tick line {
     display: none;
 }
 /*rotates labels for bars on barChart*/
-#breakfast .x.axis text {
+#calorieContent .x.axis text {
     fill: #ffffff;
     font-size: .8em;
     font-weight: 800;

@@ -101,8 +101,10 @@ function displayCereals(ndx) {
             return { count: 0, total: 0, average: 0 }
         }
     );
-    dc.barChart("#breakfast")
-        .width(550)
+    
+    var width = $("#calorieContent").offsetWidth;
+    dc.barChart("#calorieContent")
+        .width(width)
         .height(400)
         .margins({ top: 10, right: 30, bottom: 10, left: 30 })
         .transitionDuration(2000)
@@ -125,7 +127,7 @@ function displayCereals(ndx) {
 function showManufacturer(ndx) {
     var manufacturerDim = ndx.dimension(dc.pluck("mfr"));
     var manufacturerGroup = manufacturerDim.group();
-
+    var radius = $("#productsPerManufacturer").offsetWidth;
     dc.pieChart("#productsPerManufacturer")
         .height(300)
         .radius(140)
@@ -424,12 +426,13 @@ function servingSizeCalorieCorrelation(ndx) {
         return [d.cups, d.calories, d.name, d.mfr];
     })
 
-
+    var width = $("#servingSizeCalorieCorrelation").offsetWidth;
+    var height = $("#servingSizeCalorieCorrelation").offsetWidth/1.5;
     var calorieGroup = calorieDim.group();
     console.log(calorieGroup.all());
 
     dc.scatterPlot("#servingSizeCalorieCorrelation")
-        .width(550)
+        .width(width)
         .height(400)
         .transitionDuration(200)
         .x(d3.scale.linear().domain([0, maxServing]))
