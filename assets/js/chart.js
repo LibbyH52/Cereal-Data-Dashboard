@@ -46,7 +46,7 @@ function makeGraphs(error, cerealData) {
 
     })
 
-    displayCereals(ndx);
+    showCalorieContent(ndx)
     showManufacturer(ndx);
     showFiberPerProduct(ndx);
     carbsPerProduct(ndx);
@@ -73,7 +73,7 @@ function showCerealSelector(ndx) {
         })
 }
 //Bar Chart examing average calorie content by manufacturer
-function displayCereals(ndx) {
+function showCalorieContent(ndx) {
 
     var manfacturerDim = ndx.dimension(dc.pluck("mfr"));
     var averageCaloriePerProduct = manfacturerDim.group().reduce(
@@ -129,8 +129,8 @@ function showManufacturer(ndx) {
     var manufacturerGroup = manufacturerDim.group();
     var radius = $("#productsPerManufacturer").offsetWidth;
     dc.pieChart("#productsPerManufacturer")
-        .height(300)
-        .radius(140)
+        .height(350)
+        .radius(175)
         .innerRadius(75)
         .transitionDuration(1500)
         .colors(mfrColors)
@@ -139,7 +139,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(10).itemHeight(35).gap(5))
+        .legend(dc.legend().x(0).y(15).itemHeight(40).gap(10))
         .label(function(d) {
             return d.value;
         })
