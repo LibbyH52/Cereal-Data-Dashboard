@@ -1,5 +1,8 @@
 /*********import code for google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Oswald: 100, 200, 300, 400, 500, 600, 700, 800');
+body{
+    max-width: 100vw;
+}
 header{
     max-width: 100vw;
 }
@@ -57,7 +60,7 @@ p {
     font-family: 'Oswald', sans-serif;
     font-size: 1em;
     margin-top: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .btn,
@@ -80,17 +83,22 @@ p {
 /**********************Font Awesome Icons*/
 .icon{
     font-size: 3em;
-    padding: 20px;
+    color: #ffffff;
+    margin-left: 1em;
+    text-align: center;
 }
 
 /*****************************************Footer*/
 footer {
     background: #003f5c;
-    color: #ffffff;
     height: 100px;
-    width: 100%;
+    max-width: 100vw;
 }
-footer a{
+footer a,
+footer a :hover,
+footer a :focus,
+footer a :active,
+footer a :visited{
     color: #ffffff;
 }
 
@@ -105,6 +113,11 @@ footer a{
     margin: 0 auto;
     padding: 5px;
     width: 100%;
+}
+.chart{
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /***************Styles for Select Menu*/
@@ -150,7 +163,7 @@ footer a{
 }
 #servingSizeCalorieCorrelation {
     width: 100%;
-    padding: 0 60px;
+    padding: 0 50px;
     margin: 0 auto;
 }
 /***************************Media Queries*/
@@ -160,14 +173,14 @@ footer a{
         max-width: 100vw;
     }
     .dc-legend{
-        -webkit-transform: translate(110px, 80px) scale(0.5);
-        -moz-transform: translate(110px, 80px) scale(0.5);
-        -ms-transform: translate(110px, 80px) scale(0.5);
-        -o-transform: translate(110px, 80px) scale(0.5);
-        transform: translate(110px, 80px) scale(0.5);
+        -webkit-transform: translate(110px, 130px) scale(0.4);
+        -moz-transform: translate(110px, 130px) scale(0.4);
+        -ms-transform: translate(110px, 130px) scale(0.4);
+        -o-transform: translate(110px, 130px) scale(0.4);
+        transform: translate(110px, 130px) scale(0.4);
     }
     .dc-legend-item text{
-        font-size: 18px;
+        font-size: 24px;
     }
 }
 /******min-width for all other media queries*/
