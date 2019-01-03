@@ -49,12 +49,12 @@ function makeGraphs(error, cerealData) {
     showCalorieContent(ndx)
     showManufacturer(ndx);
     showFiberPerProduct(ndx);
-    carbsPerProduct(ndx);
-    proteinPerProduct(ndx);
-    fatPerProduct(ndx);
-    sodiumPerProduct(ndx);
-    sugarPerProduct(ndx);
-    servingSizeCalorieCorrelation(ndx);
+    showCarbsPerProduct(ndx);
+    showProteinPerProduct(ndx);
+    showFatPerProduct(ndx);
+    showSodiumPerProduct(ndx);
+    showSugarPerProduct(ndx);
+    showServingSizeCalorieCorrelation(ndx);
     showCerealSelector(ndx);
     dc.renderAll();
 }
@@ -193,7 +193,7 @@ function showFiberPerProduct(ndx) {
         .xAxis().ticks(5);
 }
 
-function proteinPerProduct(ndx) {
+function showProteinPerProduct(ndx) {
     var proteinDim = ndx.dimension(dc.pluck("mfr"));
     var proteinGroup = proteinDim.group().reduce(function(p, v) {
             p.count++;
@@ -237,7 +237,7 @@ function proteinPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function carbsPerProduct(ndx) {
+function showCarbsPerProduct(ndx) {
     var carbsDim = ndx.dimension(dc.pluck("mfr"));
     var carbsGroup = carbsDim.group().reduce(function(p, v) {
             p.count++;
@@ -281,7 +281,7 @@ function carbsPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function sodiumPerProduct(ndx) {
+function showSodiumPerProduct(ndx) {
     var sodiumDim = ndx.dimension(dc.pluck("mfr"));
     var sodiumGroup = sodiumDim.group().reduce(function(p, v) {
             p.count++;
@@ -323,7 +323,7 @@ function sodiumPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function fatPerProduct(ndx) {
+function showFatPerProduct(ndx) {
     var fatDim = ndx.dimension(dc.pluck("mfr"));
     var fatGroup = fatDim.group().reduce(function(p, v) {
             p.count++;
@@ -367,7 +367,7 @@ function fatPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function sugarPerProduct(ndx) {
+function showSugarPerProduct(ndx) {
     var sugarDim = ndx.dimension(dc.pluck("mfr"));
     var sugarGroup = sugarDim.group().reduce(function(p, v) {
             p.count++;
@@ -412,7 +412,7 @@ function sugarPerProduct(ndx) {
 //end of nutrition row charts
 
 //weight of serving size (cups) to calorie correlation
-function servingSizeCalorieCorrelation(ndx) {
+function showServingSizeCalorieCorrelation(ndx) {
     var servingDim = ndx.dimension(dc.pluck("cups"));
 
     var minServing = servingDim.bottom(1)[0].cups;
