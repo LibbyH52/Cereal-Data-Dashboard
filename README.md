@@ -74,17 +74,23 @@ My CSS file was checked using the W3C CSS Validation service I received no error
 
 I tried to make sure that the containers were as responsive as possible without sacrificing chart quality. 
 For this reason, my dashboard is best viewed on tablet, laptop or desktop computers. I checked that the charts 
-filtered correctly, the select menu worked as it should and that the navigation links were functional.
-I examined my dashboard in both Firefox and Chrome on the following devices: 
+filtered correctly, the select menu worked as it should and that the navigation and font awesome links were 
+functional, and that links in the footer opened in a new tab. I also tested the reset button to make sure it return all charts to an unfiltered state.
 
-iPad
-iPad Mini
-iPad pro
-Kindle Fire HDX
-Laptop with HiDPI screen
-Laptop with MDPI screen
-Laptop with touch
-1080p Full HD Television
+I examined the functionality of my dashboard on the following devices: 
+* Galaxy S9/ S9+ 
+* Galaxy Note 9 
+* iPhone 6, 7, 8
+* iPhone 6, 7, 8 plus 
+* iPad
+* iPad Mini
+* iPad pro 10.5 
+* Kindle Fire HDX
+* Laptop with HiDPI screen
+* Laptop with MDPI screen
+* Laptop with touch
+* 720p HD Television
+* 1080p Full HD Television
 
 
 ## Deployment
@@ -104,6 +110,7 @@ The colour scheme for my charts, borders, header and footer was gotten from
 [here](https://learnui.design/tools/data-color-picker.html#palette)
 The JavaScript code to collapse the Hamburger menu was copied from [here:](https://stackoverflow.com/a/32336582)
 The code for resetting the charts from their filtered state was gotten from [here:] (http://jsfiddle.net/gordonwoodhull/yu1swf2x/1/)
+
 #### Media
 The cereal image in my Navabr I got from [pixabay](https://pixabay.com/en/cereal-breakfast-milk-bowl-healthy-32149/)
 
