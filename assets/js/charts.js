@@ -180,7 +180,7 @@ function showFiberPerProduct(ndx) {
     dc.rowChart("#fiberContent")
         .width(400)
         .height(250)
-        .margins({ top: 10, right: 10, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .useViewBoxResizing(true)
         .dimension(fiberDim)
         .colorAccessor(function(d) {
@@ -227,7 +227,7 @@ function proteinPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        .margins({ top: 5, right: 10, bottom: 50, left: 10})
+        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(proteinDim)
         .group(proteinGroup)
         .valueAccessor(function(d) {
@@ -273,7 +273,7 @@ function carbsPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(carbsDim)
         .group(carbsGroup)
         .colorAccessor(function(d) {
@@ -317,7 +317,7 @@ function sodiumPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(sodiumDim)
         .group(sodiumGroup)
         .colorAccessor(function(d) {
@@ -363,7 +363,7 @@ function fatPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(fatDim)
         .group(fatGroup)
         .colorAccessor(function(d) {
@@ -407,7 +407,7 @@ function sugarPerProduct(ndx) {
     dc.rowChart("#sugarContent")
         .width(400)
         .height(250)
-        .margins({ top: 10, right: 10, bottom: 50, left: 10})
+        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .useViewBoxResizing(true)
         .dimension(sugarDim)
         .group(sugarGroup)
