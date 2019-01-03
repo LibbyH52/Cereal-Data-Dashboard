@@ -176,9 +176,10 @@ function showFiberPerProduct(ndx) {
         });
     //code to draw row chart 
     dc.rowChart("#fiberContent")
-        .width(width)
+        .width(400)
         .height(250)
         //.margins({ top: 20, right: 40, bottom: 40, left: 10})
+        .useViewBoxResizing(true)
         .dimension(fiberDim)
         .colorAccessor(function(d) {
             return d.key;
@@ -221,8 +222,9 @@ function proteinPerProduct(ndx) {
 
     //code to draw row chart
     dc.rowChart("#proteinContent")
-        .width(width)
+        .width(400)
         .height(250)
+        .useViewBoxResizing(true)
         //.margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(proteinDim)
         .group(proteinGroup)
@@ -266,8 +268,9 @@ function carbsPerProduct(ndx) {
 
     //code to draw row chart 
     dc.rowChart("#carbContent")
-        .width(width)
+        .width(400)
         .height(250)
+        .useViewBoxResizing(true)
         //.margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(carbsDim)
         .group(carbsGroup)
@@ -308,10 +311,10 @@ function sodiumPerProduct(ndx) {
             return { count: 0, total: 0, average: 0 }
         });
 
-    //code to draw row chart
     dc.rowChart("#sodiumContent")
-        .width(width)
+        .width(400)
         .height(250)
+        .useViewBoxResizing(true)
         //.margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sodiumDim)
         .group(sodiumGroup)
@@ -355,8 +358,9 @@ function fatPerProduct(ndx) {
 
     //code to draw row chart 
     dc.rowChart("#fatContent")
-        .width(width)
+        .width(400)
         .height(250)
+        .useViewBoxResizing(true)
         //.margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(fatDim)
         .group(fatGroup)
@@ -397,11 +401,11 @@ function sugarPerProduct(ndx) {
             return { count: 0, total: 0, average: 0 }
         });
 
-    //code to draw row chart
 
     dc.rowChart("#sugarContent")
-        .width(width)
+        .width(400)
         .height(250)
+        .useViewBoxResizing(true)
         //.margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sugarDim)
         .group(sugarGroup)
@@ -450,7 +454,7 @@ function servingSizeCalorieCorrelation(ndx) {
             return d.key[3];
         })
         .dimension(calorieDim)
-        .margins({ top: 20, right: 10, bottom: 40, left: 40 })
+        //.margins({ top: 20, right: 10, bottom: 40, left: 40 })
         .useViewBoxResizing(true)
         .group(calorieGroup)
         .xAxis().ticks(10)
