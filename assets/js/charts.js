@@ -178,10 +178,8 @@ function showFiberPerProduct(ndx) {
         });
     //code to draw row chart 
     dc.rowChart("#fiberContent")
-        .width(400)
+        .width(width)
         .height(250)
-        .margins({ top: 10, right: 10, bottom: 25, left: 10})
-        .useViewBoxResizing(true)
         .dimension(fiberDim)
         .colorAccessor(function(d) {
             return d.key;
@@ -224,10 +222,8 @@ function proteinPerProduct(ndx) {
 
     //code to draw row chart
     dc.rowChart("#proteinContent")
-        .width(400)
+        .width(width)
         .height(250)
-        .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(proteinDim)
         .group(proteinGroup)
         .valueAccessor(function(d) {
@@ -270,10 +266,8 @@ function carbsPerProduct(ndx) {
 
     //code to draw row chart 
     dc.rowChart("#carbContent")
-        .width(400)
+        .width(width)
         .height(250)
-        .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(carbsDim)
         .group(carbsGroup)
         .colorAccessor(function(d) {
@@ -314,10 +308,8 @@ function sodiumPerProduct(ndx) {
         });
 
     dc.rowChart("#sodiumContent")
-        .width(400)
+        .width(width)
         .height(250)
-        .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(sodiumDim)
         .group(sodiumGroup)
         .colorAccessor(function(d) {
@@ -360,10 +352,8 @@ function fatPerProduct(ndx) {
 
     //code to draw row chart 
     dc.rowChart("#fatContent")
-        .width(400)
+        .width(width)
         .height(250)
-        .useViewBoxResizing(true)
-        .margins({ top: 10, right: 10, bottom: 25, left: 10})
         .dimension(fatDim)
         .group(fatGroup)
         .colorAccessor(function(d) {
@@ -405,10 +395,8 @@ function sugarPerProduct(ndx) {
 
 
     dc.rowChart("#sugarContent")
-        .width(400)
+        .width(width)
         .height(250)
-        .margins({ top: 10, right: 10, bottom: 25, left: 10})
-        .useViewBoxResizing(true)
         .dimension(sugarDim)
         .group(sugarGroup)
         .colorAccessor(function(d) {
