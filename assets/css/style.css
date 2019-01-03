@@ -150,6 +150,7 @@ footer a{
 }
 #servingSizeCalorieCorrelation {
     width: 100%;
+    padding: 0 60px;
     margin: 0 auto;
 }
 /***************************Media Queries*/
