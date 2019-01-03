@@ -106,9 +106,10 @@ function showCalorieContent(ndx) {
     
     //var width = $("#calorieContent").offsetWidth;
     dc.barChart("#calorieContent")
-        .width(width)
-        .height(400)
-        //.margins({ top: 10, right: 30, bottom: 10, left: 30 })
+        .width(550)
+        .height(420)
+        .margins({ top: 10, right: 30, bottom: 20, left: 30 })
+        .useViewBoxResizing(true)
         .transitionDuration(2000)
         .dimension(manfacturerDim)
         .group(averageCaloriePerProduct)
@@ -132,9 +133,10 @@ function showManufacturer(ndx) {
     var radius = $("#productsPerManufacturer").offsetWidth;
   
     dc.pieChart("#productsPerManufacturer")
-        .height(340)
+        .height(390)
         .radius(170)
-        .innerRadius(120)
+        .innerRadius(100)
+        .useViewBoxResizing(true)
         .transitionDuration(1500)
         .colors(mfrColors)
         .colorAccessor(function(d) {
@@ -142,7 +144,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(10).itemHeight(40).gap(10))
+        .legend(dc.legend().x(0).y(20).itemHeight(40).gap(10))
         .label(function(d) {
             return d.value;
         })
@@ -178,7 +180,7 @@ function showFiberPerProduct(ndx) {
     dc.rowChart("#fiberContent")
         .width(400)
         .height(250)
-        //.margins({ top: 20, right: 40, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 40, left: 10})
         .useViewBoxResizing(true)
         .dimension(fiberDim)
         .colorAccessor(function(d) {
@@ -225,7 +227,7 @@ function proteinPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        //.margins({ top: 20, right: 40, bottom: 40, left: 10})
+        .margins({ top: 5, right: 10, bottom: 50, left: 10})
         .dimension(proteinDim)
         .group(proteinGroup)
         .valueAccessor(function(d) {
@@ -271,7 +273,7 @@ function carbsPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        //.margins({ top: 20, right: 40, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 40, left: 10})
         .dimension(carbsDim)
         .group(carbsGroup)
         .colorAccessor(function(d) {
@@ -315,7 +317,7 @@ function sodiumPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        //.margins({ top: 20, right: 40, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 40, left: 10})
         .dimension(sodiumDim)
         .group(sodiumGroup)
         .colorAccessor(function(d) {
@@ -361,7 +363,7 @@ function fatPerProduct(ndx) {
         .width(400)
         .height(250)
         .useViewBoxResizing(true)
-        //.margins({ top: 20, right: 40, bottom: 40, left: 10})
+        .margins({ top: 10, right: 10, bottom: 40, left: 10})
         .dimension(fatDim)
         .group(fatGroup)
         .colorAccessor(function(d) {
@@ -405,8 +407,8 @@ function sugarPerProduct(ndx) {
     dc.rowChart("#sugarContent")
         .width(400)
         .height(250)
+        .margins({ top: 10, right: 10, bottom: 50, left: 10})
         .useViewBoxResizing(true)
-        //.margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sugarDim)
         .group(sugarGroup)
         .colorAccessor(function(d) {
@@ -437,8 +439,9 @@ function servingSizeCalorieCorrelation(ndx) {
     console.log(calorieGroup.all());
     
     dc.scatterPlot("#servingSizeCalorieCorrelation")
-        .width(550)
-        .height(400)
+        .width(600)
+        .height(500)
+        .margins({ top: 20, right: 20, bottom: 30, left: 20 })
         .transitionDuration(200)
         .x(d3.scale.linear().domain([0, maxServing]))
         .xAxisLabel("Serving Size in Cups")
@@ -454,7 +457,6 @@ function servingSizeCalorieCorrelation(ndx) {
             return d.key[3];
         })
         .dimension(calorieDim)
-        //.margins({ top: 20, right: 10, bottom: 40, left: 40 })
         .useViewBoxResizing(true)
         .group(calorieGroup)
         .xAxis().ticks(10)
