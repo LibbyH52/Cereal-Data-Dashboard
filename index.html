@@ -48,7 +48,7 @@
             </div>
         </nav>
     </header>
-    <main class="cerealMain">
+    <main>
         <section class="section borderBottom" id="home">
             <div class="container">
                 <div class="row">
@@ -58,7 +58,6 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 pieChart chart" id="productsPerManufacturer">
-                        <div id="manufacturerLegend" class="dc-html-legend-container"></div>
                         <h2>Cereal Manufacturers</h2>
                         <p>As can be seen in the pie chart above, Kellogg's and General Mills are the largest cereal manufacturers</p>
                     </div>
@@ -69,7 +68,8 @@
                 </div>
             </div>
         </section>
-        <section class="section borderBottom moreInfo">
+        <!--section containing row charts showing nutritional breakdown of products-->
+        <section class="section borderBottom">
             <div class="container" id="nutrition">
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
@@ -103,10 +103,12 @@
                 </div>
             </div>
         </section>
+        <!--end of nutrition breakdown section-->
+        <!--scatter plot showing serving size/calorie correlation and reset button for all charts-->
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6 chart" id="servingSizeCalorieCorrelation">
+                    <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-3 col-lg-6 chart" id="servingSizeCalorieCorrelation">
                         <h2 class="scatterPlotHeader" id="servingSize">Serving Size to Calorie Correlation</h2>
                         <p>As can be seen below, there is very little correlation between serving size and calorie content</p>
                     </div>
