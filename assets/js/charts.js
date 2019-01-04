@@ -106,10 +106,8 @@ function showCalorieContent(ndx) {
     
     //var width = $("#calorieContent").offsetWidth;
     dc.barChart("#calorieContent")
-        .width(550)
+        .width(width)
         .height(420)
-        .margins({ top: 10, right: 30, bottom: 20, left: 30 })
-        .useViewBoxResizing(true)
         .transitionDuration(2000)
         .dimension(manfacturerDim)
         .group(averageCaloriePerProduct)
@@ -134,7 +132,7 @@ function showManufacturer(ndx) {
   
     dc.pieChart("#productsPerManufacturer")
         .height(390)
-        .radius(170)
+        .radius(180)
         .innerRadius(100)
         .useViewBoxResizing(true)
         .transitionDuration(1500)
@@ -427,9 +425,8 @@ function showServingSizeCalorieCorrelation(ndx) {
     console.log(calorieGroup.all());
     
     dc.scatterPlot("#servingSizeCalorieCorrelation")
-        .width(600)
-        .height(500)
-        .margins({ top: 20, right: 20, bottom: 30, left: 20 })
+        .width(width)
+        .height(400)
         .transitionDuration(200)
         .x(d3.scale.linear().domain([0, maxServing]))
         .xAxisLabel("Serving Size in Cups")
@@ -445,7 +442,6 @@ function showServingSizeCalorieCorrelation(ndx) {
             return d.key[3];
         })
         .dimension(calorieDim)
-        .useViewBoxResizing(true)
         .group(calorieGroup)
         .xAxis().ticks(10)
 }
