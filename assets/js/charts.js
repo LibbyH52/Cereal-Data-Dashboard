@@ -104,7 +104,6 @@ function showCalorieContent(ndx) {
         }
     );
     
-    //var width = $("#calorieContent").offsetWidth;
     dc.barChart("#calorieContent")
         .width(width)
         .height(420)
@@ -124,7 +123,7 @@ function showCalorieContent(ndx) {
         .elasticY(true)
         .yAxis().ticks(10);
 }
-// Pie Chart looking at breakdown of market share by manufacturer
+// Pie Chart looking at number of products per manufacturer
 function showManufacturer(ndx) {
     var manufacturerDim = ndx.dimension(dc.pluck("mfr"));
     var manufacturerGroup = manufacturerDim.group();
@@ -142,7 +141,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(20).itemHeight(40).gap(10))
+        .legend(dc.legend().x(0).y(5).itemHeight(30).gap(20))
         .label(function(d) {
             return d.value;
         })
