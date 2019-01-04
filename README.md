@@ -92,6 +92,9 @@ I examined the functionality of my dashboard on the following devices:
 * 720p HD Television
 * 1080p Full HD Television
 
+The only small issue I had was rendering the tooltips on the scatterplot points for touch screens. I didn't
+manage to fix this but have noticed the same problem on other websites when examining the scatter plots in 
+responsive mode. 
 
 ## Deployment
 This site has been deployed via GitHub.

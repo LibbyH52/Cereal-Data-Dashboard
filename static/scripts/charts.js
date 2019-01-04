@@ -1,6 +1,6 @@
 //code for graphs and pie charts to go here
 queue()
-    .defer(d3.csv, "assets/data/cereal.csv")
+    .defer(d3.csv, "static/data/cereal.csv")
     .await(makeGraphs);
 
 //adds an individual colour to each manufacturer
@@ -46,19 +46,21 @@ function makeGraphs(error, cerealData) {
 
     })
 
-    showCalorieContent(ndx)
+    showCalorieContent(ndx);
     showManufacturer(ndx);
     showFiberPerProduct(ndx);
-    carbsPerProduct(ndx);
-    proteinPerProduct(ndx);
-    fatPerProduct(ndx);
-    sodiumPerProduct(ndx);
-    sugarPerProduct(ndx);
-    servingSizeCalorieCorrelation(ndx);
+    showCarbsPerProduct(ndx);
+    showProteinPerProduct(ndx);
+    showFatPerProduct(ndx);
+    showSodiumPerProduct(ndx);
+    showSugarPerProduct(ndx);
+    showServingSizeCalorieCorrelation(ndx);
     showCerealSelector(ndx);
     dc.renderAll();
 }
-
+//to add some responsiveness to charts
+ var width = $(".chart").offsetWidth;
+ 
 //allows users to select their own cereal preference
 function showCerealSelector(ndx) {
     nameDim = ndx.dimension(dc.pluck("name"));
@@ -102,11 +104,9 @@ function showCalorieContent(ndx) {
         }
     );
     
-    var width = $("#calorieContent").offsetWidth;
     dc.barChart("#calorieContent")
         .width(width)
-        .height(400)
-        .margins({ top: 10, right: 30, bottom: 10, left: 30 })
+        .height(420)
         .transitionDuration(2000)
         .dimension(manfacturerDim)
         .group(averageCaloriePerProduct)
@@ -123,15 +123,17 @@ function showCalorieContent(ndx) {
         .elasticY(true)
         .yAxis().ticks(10);
 }
-// Pie Chart looking at breakdown of market share by manufacturer
+// Pie Chart looking at number of products per manufacturer
 function showManufacturer(ndx) {
     var manufacturerDim = ndx.dimension(dc.pluck("mfr"));
     var manufacturerGroup = manufacturerDim.group();
     var radius = $("#productsPerManufacturer").offsetWidth;
+  
     dc.pieChart("#productsPerManufacturer")
-        .height(350)
-        .radius(175)
-        .innerRadius(75)
+        .height(390)
+        .radius(180)
+        .innerRadius(100)
+        .useViewBoxResizing(true)
         .transitionDuration(1500)
         .colors(mfrColors)
         .colorAccessor(function(d) {
@@ -139,7 +141,7 @@ function showManufacturer(ndx) {
         })
         .dimension(manufacturerDim)
         .group(manufacturerGroup)
-        .legend(dc.legend().x(0).y(15).itemHeight(40).gap(10))
+        .legend(dc.legend().x(0).y(5).itemHeight(30).gap(25))
         .label(function(d) {
             return d.value;
         })
@@ -173,9 +175,8 @@ function showFiberPerProduct(ndx) {
         });
     //code to draw row chart 
     dc.rowChart("#fiberContent")
-        .width(350)
+        .width(width)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(fiberDim)
         .colorAccessor(function(d) {
             return d.key;
@@ -189,7 +190,7 @@ function showFiberPerProduct(ndx) {
         .xAxis().ticks(5);
 }
 
-function proteinPerProduct(ndx) {
+function showProteinPerProduct(ndx) {
     var proteinDim = ndx.dimension(dc.pluck("mfr"));
     var proteinGroup = proteinDim.group().reduce(function(p, v) {
             p.count++;
@@ -218,9 +219,8 @@ function proteinPerProduct(ndx) {
 
     //code to draw row chart
     dc.rowChart("#proteinContent")
-        .width(350)
+        .width(width)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(proteinDim)
         .group(proteinGroup)
         .valueAccessor(function(d) {
@@ -234,7 +234,7 @@ function proteinPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function carbsPerProduct(ndx) {
+function showCarbsPerProduct(ndx) {
     var carbsDim = ndx.dimension(dc.pluck("mfr"));
     var carbsGroup = carbsDim.group().reduce(function(p, v) {
             p.count++;
@@ -263,9 +263,8 @@ function carbsPerProduct(ndx) {
 
     //code to draw row chart 
     dc.rowChart("#carbContent")
-        .width(350)
+        .width(width)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(carbsDim)
         .group(carbsGroup)
         .colorAccessor(function(d) {
@@ -279,7 +278,7 @@ function carbsPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function sodiumPerProduct(ndx) {
+function showSodiumPerProduct(ndx) {
     var sodiumDim = ndx.dimension(dc.pluck("mfr"));
     var sodiumGroup = sodiumDim.group().reduce(function(p, v) {
             p.count++;
@@ -305,11 +304,9 @@ function sodiumPerProduct(ndx) {
             return { count: 0, total: 0, average: 0 }
         });
 
-    //code to draw row chart
     dc.rowChart("#sodiumContent")
-        .width(350)
+        .width(width)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sodiumDim)
         .group(sodiumGroup)
         .colorAccessor(function(d) {
@@ -323,7 +320,7 @@ function sodiumPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function fatPerProduct(ndx) {
+function showFatPerProduct(ndx) {
     var fatDim = ndx.dimension(dc.pluck("mfr"));
     var fatGroup = fatDim.group().reduce(function(p, v) {
             p.count++;
@@ -352,9 +349,8 @@ function fatPerProduct(ndx) {
 
     //code to draw row chart 
     dc.rowChart("#fatContent")
-        .width(350)
+        .width(width)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(fatDim)
         .group(fatGroup)
         .colorAccessor(function(d) {
@@ -368,7 +364,7 @@ function fatPerProduct(ndx) {
         .xAxis().ticks(4);
 }
 
-function sugarPerProduct(ndx) {
+function showSugarPerProduct(ndx) {
     var sugarDim = ndx.dimension(dc.pluck("mfr"));
     var sugarGroup = sugarDim.group().reduce(function(p, v) {
             p.count++;
@@ -394,12 +390,10 @@ function sugarPerProduct(ndx) {
             return { count: 0, total: 0, average: 0 }
         });
 
-    //code to draw row chart
 
     dc.rowChart("#sugarContent")
-        .width(350)
+        .width(width)
         .height(250)
-        .margins({ top: 20, right: 40, bottom: 40, left: 10})
         .dimension(sugarDim)
         .group(sugarGroup)
         .colorAccessor(function(d) {
@@ -415,7 +409,7 @@ function sugarPerProduct(ndx) {
 //end of nutrition row charts
 
 //weight of serving size (cups) to calorie correlation
-function servingSizeCalorieCorrelation(ndx) {
+function showServingSizeCalorieCorrelation(ndx) {
     var servingDim = ndx.dimension(dc.pluck("cups"));
 
     var minServing = servingDim.bottom(1)[0].cups;
@@ -426,11 +420,9 @@ function servingSizeCalorieCorrelation(ndx) {
         return [d.cups, d.calories, d.name, d.mfr];
     })
 
-    var width = $("#servingSizeCalorieCorrelation").offsetWidth;
-    var height = $("#servingSizeCalorieCorrelation").offsetWidth/1.5;
     var calorieGroup = calorieDim.group();
     console.log(calorieGroup.all());
-
+    
     dc.scatterPlot("#servingSizeCalorieCorrelation")
         .width(width)
         .height(400)
