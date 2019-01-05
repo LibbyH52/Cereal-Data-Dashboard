@@ -20,30 +20,23 @@ function makeGraphs(error, cerealData) {
         d.sugars = parseInt(d.sugars);
         d.sodium = parseInt(d.sodium);
     })
-    //full manufacturer names (dataset just contains letters)
+//full manufacturer names (dataset just contains letters)
     cerealData.forEach(function(d) {
-        if (d.mfr == "K") {
+        if (d.mfr === "K") {
             d.mfr = "Kellogg's"
-        }
-        else if (d.mfr == "G") {
+        }else if (d.mfr === "G") {
             d.mfr = "General Mills"
-        }
-        else if (d.mfr == "P") {
+        }else if (d.mfr === "P") {
             d.mfr = "Post"
-        }
-        else if (d.mfr == "Q") {
+        }else if (d.mfr === "Q") {
             d.mfr = "Quaker Oats"
-        }
-        else if (d.mfr == "R") {
+        }else if (d.mfr === "R") {
             d.mfr = "Ralston Purina"
-        }
-        else if (d.mfr == "A") {
+        } else if (d.mfr === "A") {
             d.mfr = "American Home Food Products"
-        }
-        else if (d.mfr == "N") {
+        } else if (d.mfr === "N") {
             d.mfr = "Nabisco"
         }
-
     })
 
     showCalorieContent(ndx);
@@ -58,7 +51,7 @@ function makeGraphs(error, cerealData) {
     showCerealSelector(ndx);
     dc.renderAll();
 }
-//to add some responsiveness to charts
+//dynamice width for responsivene charts
  var width = $(".chart").offsetWidth;
  
 //allows users to select their own cereal preference
