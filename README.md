@@ -123,23 +123,23 @@ This site has been deployed via GitHub.
 ## Credits
 
 #### Content
-The dataset I used for analysis was obtained from [kaggle.com](https://www.kaggle.com/crawford/80-cereals/){:target="_blank"}
+The dataset I used for analysis was obtained from [kaggle.com](https://www.kaggle.com/crawford/80-cereals/).
 The full names of the breakfast cereal manufacturers were also obtained from
-[kaggle.com](https://www.kaggle.com/jeandsantos/breakfast-cereals-data-analysis-and-clustering){:target="_blank"}
-The code for rotating the text on my bar chart I got from [JS fiddle](https://jsfiddle.net/geotheory/mvhtqu17/){:target="_blank"}.
-CSS code for removing the tick marks on the bar chart was taken from the fourth answer (Andrew) [JSFiddle](https://github.com/c3js/c3/issues/876){:target="_blank"}.
+[kaggle.com](https://www.kaggle.com/jeandsantos/breakfast-cereals-data-analysis-and-clustering).
+The code for rotating the text on my bar chart I got from [JS fiddle](https://jsfiddle.net/geotheory/mvhtqu17/).
+CSS code for removing the tick marks on the bar chart was taken from the fourth answer (Andrew) [JSFiddle](https://github.com/c3js/c3/issues/876).
 The colour scheme for my charts, borders, header and footer was gotten from 
-[learnui](https://learnui.design/tools/data-color-picker.html#palette){:target="_blank"}
-The code for resetting the charts from their filtered state was also obtained from [jsfiddle](http://jsfiddle.net/gordonwoodhull/yu1swf2x/1/){:target="_blank"}
-I got the code for my navbar from [bootswatch](https://bootswatch.com/pulse/){:target="_blank"}. The only change I made was to
+[learnui](https://learnui.design/tools/data-color-picker.html#palette)
+The code for resetting the charts from their filtered state was also obtained from [jsfiddle](http://jsfiddle.net/gordonwoodhull/yu1swf2x/1/)
+I got the code for my navbar from [bootswatch](https://bootswatch.com/pulse/). The only change I made was to
 remove the 'expand' class as I wanted a collapsed navbar on all screen sizes.
-The JavaScript code to collapse the Hamburger menu was copied from [stackoverflow](https://stackoverflow.com/questions/16877429/twitter-bootstrap-mobile-nav-hide-menu-after-clicking-menu-link){:target="_blank"}
-The syntax for the makrdown code to open a link in a new tab I got from [stackoverflow](https://stackoverflow.com/questions/4425198/can-i-create-links-with-target-blank-in-markdown){:target="_blank"}.
+The JavaScript code to collapse the Hamburger menu was copied from [stackoverflow](https://stackoverflow.com/questions/16877429/twitter-bootstrap-mobile-nav-hide-menu-after-clicking-menu-link).
+
 #### Media
-The cereal image in my Navbar I got from [pixabay](https://pixabay.com/en/cereal-breakfast-milk-bowl-healthy-32149/){:target="_blank"}
+The cereal image in my Navbar I got from [pixabay](https://pixabay.com/en/cereal-breakfast-milk-bowl-healthy-32149/).
 
 #### Acknowledgements
-My layout was inspired by [the following data visualisation](http://amberonrails.com/cereal-visualization/){:target="_blank"}
+My layout was inspired by [the following data visualisation](http://amberonrails.com/cereal-visualization/).
 and by the Code Institute's Data Visualisation Mini Project.
 
 
