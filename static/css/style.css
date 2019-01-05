@@ -86,23 +86,9 @@ p {
     margin-left: 1em;
     text-align: center;
 }
-
-/*****************************************Footer*/
-footer {
-    background: #003f5c;
-    height: 100px;
-    max-width: 100vw;
-}
-footer a,
-footer a :hover,
-footer a :focus,
-footer a :active,
-footer a :visited{
-    color: #ffffff;
-}
-
 /******************************Chart Containers*/
 .container {
+    padding-top: 90px;
     margin: 0 auto;
 }
 .row {
@@ -164,6 +150,19 @@ footer a :visited{
 #servingSizeCalorieCorrelation {
     width: 100%;
     margin: 0 auto;
+}
+/*****************************************Footer*/
+footer {
+    background: #003f5c;
+    height: 100px;
+    max-width: 100vw;
+}
+footer a,
+footer a :hover,
+footer a :focus,
+footer a :active,
+footer a :visited{
+    color: #ffffff;
 }
 
 /***************************Media Queries*/
