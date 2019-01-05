@@ -106,14 +106,10 @@ p {
 }
 
 /***************Styles for Select Menu*/
-.selectCereal {
-    padding: 4em 0;
-}
-
-#selectMenu {
+.dc-select-menu {
     display: inline-block;
-    position: relative;
-    width: 100%;
+    width: 80%;
+    margin: 0 10%;
 }
 
 /******************************Charts*/
