@@ -127,13 +127,13 @@ The dataset I used for analysis was obtained from [kaggle.com](https://www.kaggl
 The full names of the breakfast cereal manufacturers were obtained from
 [here](https://www.kaggle.com/jeandsantos/breakfast-cereals-data-analysis-and-clustering)
 The code for rotating the text on my bar chart I got from [JS fiddle](https://jsfiddle.net/geotheory/mvhtqu17/).
-CSS code for removing the tick marks on the bar chart was taken from the fourth answer (Andrew) [here](https://github.com/c3js/c3/issues/876)
+CSS code for removing the tick marks on the bar chart was taken from the fourth answer (Andrew) [JSFiddle](https://github.com/c3js/c3/issues/876).
 The colour scheme for my charts, borders, header and footer was gotten from 
-[here](https://learnui.design/tools/data-color-picker.html#palette)
-The code for resetting the charts from their filtered state was gotten from [here:] (http://jsfiddle.net/gordonwoodhull/yu1swf2x/1/)
+[learnui](https://learnui.design/tools/data-color-picker.html#palette)
+The code for resetting the charts from their filtered state was also obtained from [jsfiddle](http://jsfiddle.net/gordonwoodhull/yu1swf2x/1/)
 I got the code for my navbar from [bootswatch](https://bootswatch.com/pulse/). The only change I made was to
 remove the 'expand' class as I wanted a collapsed navbar on all screen sizes.
-The JavaScript code to collapse the Hamburger menu was copied from [here:](https://stackoverflow.com/questions/16877429/twitter-bootstrap-mobile-nav-hide-menu-after-clicking-menu-link)
+The JavaScript code to collapse the Hamburger menu was copied from [stackoverflow](https://stackoverflow.com/questions/16877429/twitter-bootstrap-mobile-nav-hide-menu-after-clicking-menu-link)
 
 #### Media
 The cereal image in my Navbar I got from [pixabay](https://pixabay.com/en/cereal-breakfast-milk-bowl-healthy-32149/)
