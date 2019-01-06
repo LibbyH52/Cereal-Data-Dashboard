@@ -116,6 +116,12 @@ It was also tested using those criteria on the following devices:
 The only small issue I had was rendering the tooltips on the scatterplot points for touch screens. I didn't
 manage to fix this but have noticed the same problem on other websites when examining scatter plots in 
 responsive mode. 
+As well as this, my scatter plot while still readable, isn't aesthetically pleasing on mobile screens due
+to the fact that I hard coded the height attribute and used a responsive width attribute. I chose to do this over using 
+viewbox resizing because when I used viewbox resize either one or both of the axis lines on my chart disappeared, and no matter
+how much I played around with the margins I could not get it to display properly on all mobile screens. 
+For this reason, I felt using a dynamic width was the best way to have responsive graphs without losing out on any of the 
+details. 
 
 ## Deployment
 This site has been deployed via GitHub.
