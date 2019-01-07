@@ -414,11 +414,10 @@ function showServingSizeCalorieCorrelation(ndx) {
     })
 
     var calorieGroup = calorieDim.group();
-    console.log(calorieGroup.all());
     
     dc.scatterPlot("#servingSizeCalorieCorrelation")
         .width(width)
-        .height(400)
+        .height(450)
         .transitionDuration(200)
         .x(d3.scale.linear().domain([0, maxServing]))
         .xAxisLabel("Serving Size in Cups")
