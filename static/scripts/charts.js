@@ -39,16 +39,16 @@ function makeGraphs(error, cerealData) {
         }
     })
 
+    showCerealSelector(ndx);
     showCalorieContent(ndx);
     showManufacturer(ndx);
     showFiberPerProduct(ndx);
-    showCarbsPerProduct(ndx);
     showProteinPerProduct(ndx);
-    showFatPerProduct(ndx);
+    showCarbsPerProduct(ndx);
     showSodiumPerProduct(ndx);
+    showFatPerProduct(ndx);
     showSugarPerProduct(ndx);
     showServingSizeCalorieCorrelation(ndx);
-    showCerealSelector(ndx);
     dc.renderAll();
 }
 //dynamice width for responsivene charts
