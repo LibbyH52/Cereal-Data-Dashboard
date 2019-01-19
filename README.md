@@ -124,7 +124,9 @@ For this reason, I felt using a dynamic width was the best way to have responsiv
 details. 
 
 ## Deployment
-This site has been deployed via GitHub.
+This site was deployed using GitHub Pages and can be found [here:](https://libbyh52.github.io/Cereal-Data-Dashboard/)
+Local deployment was not used for this project.
+
 
 ## Credits
 
